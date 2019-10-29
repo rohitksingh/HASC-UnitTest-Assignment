@@ -20,7 +20,6 @@ public class Course {
   int NumOfAss;
   int CourseLevel;
 
-
   public Course(String strCourse, int theLevel) {
     this.CourseName = strCourse;
 

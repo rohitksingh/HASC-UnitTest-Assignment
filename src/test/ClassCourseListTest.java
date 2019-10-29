@@ -11,13 +11,7 @@ class ClassCourseListTest {
 
 	@Test
 	public void testFindCourseByCourseName() {
-		
-		String keyword = "SER515";
-		
-		ClassCourseList classCourseList = new ClassCourseList();
-		classCourseList.In
-		
-		
+	   	
 	}
 
 }
