@@ -6,7 +6,10 @@ import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -17,17 +20,22 @@ import hacs.SolutionList;
 
 @DisplayName("When running AssignmentTest")
 class AssignmentTest {
-	
-	
+		
 	@Nested
 	@DisplayName("test set due-date")
 	class SetDueDate{
 		
+		Assignment assignment;
+		
+		@BeforeEach
+		public void init() {
+			assignment = new Assignment();
+		}
+		
 		@Test
-		@DisplayName("when setting correct date")
+		@DisplayName("when setting a correct date")
 		public void testSetSetDueDate() {
 			Date date1 = new Date();
-			Assignment assignment = new Assignment();
 			assignment.SetDueDate(date1);
 			DateFormat dateFormat=DateFormat.getDateInstance(DateFormat.SHORT);
 		    String out1 =  dateFormat.format(date1);
@@ -38,7 +46,6 @@ class AssignmentTest {
 		@Test
 		@DisplayName("when setting a null value")
 		public void testSetDueDateNull() {
-			Assignment assignment = new Assignment();
 			assignment.SetDueDate(null);
 			assertThrows(NullPointerException.class, () -> {
 			    assignment.getDueDateString();
@@ -47,19 +54,24 @@ class AssignmentTest {
 		
 	}
 	
-	
 	@Nested
 	@DisplayName("test is assignment overdue")
 	class SetOverdue{
+		
+		Assignment assignment;
+		Date currentDate = new Date();
+		
+		@BeforeEach
+		void init() {
+		    assignment = new Assignment();
+		    currentDate = new Date();
+		}
 		
 		@Test
 		@DisplayName("when current date is before duedate")
 		public void testIsOverDuePastDate(){
 		    
-			Assignment assignment = new Assignment();
-			Date currentDate = new Date();
 			Date tenDaysBefore = new Date(currentDate.getTime() - (10 * 24 * 60 * 60 * 1000)); 
-	        System.out.println(tenDaysBefore.toString());
 			assignment.SetDueDate(tenDaysBefore);
 			assertEquals(true, assignment.IsOverDue());
 			
@@ -69,11 +81,8 @@ class AssignmentTest {
 		@DisplayName("when current date is after duedate")
 		public void testIsOverDuePastFuture(){
 		    
-			Assignment assignment = new Assignment();
-			Date currentDate = new Date();
-			Date tenDaysBefore = new Date(currentDate.getTime() + (10 * 24 * 60 * 60 * 1000)); 
-	        System.out.println(tenDaysBefore.toString());
-			assignment.SetDueDate(tenDaysBefore);
+			Date tenDaysAfter = new Date(currentDate.getTime() + (10 * 24 * 60 * 60 * 1000)); 
+			assignment.SetDueDate(tenDaysAfter);
 			assertEquals(false, assignment.IsOverDue());	
 	    }
 		
@@ -82,13 +91,12 @@ class AssignmentTest {
 
 	@Test
 	public void testAddSolution(){
-	    
 		Solution mysolution = new Solution();
 		assertTrue(mysolution instanceof Solution);
-		
 	}
 	
 	@Test
+	@Disabled
 	public void testAddSolutionToList(){
 		
 	}
