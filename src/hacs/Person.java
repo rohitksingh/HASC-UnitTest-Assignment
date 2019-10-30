@@ -43,7 +43,6 @@ abstract public class Person {
 
 	public void show() {
 		theCourseMenu.setVisible(true);
-		;
 	}
 
 	public boolean ifLogout() {
@@ -54,11 +53,11 @@ abstract public class Person {
 	public boolean showMenu() {
 		// create a iterator for the assignment list
 		// Iterator theIter=new ListIterator(CurrentCourse.AssList );
-		Iterator<Assignment> theIter = currentCourse.assignmentList.iterator();
+		Iterator<Assignment> assignmentIterator = currentCourse.assignmentList.iterator();
 		theCourseMenu.theCourse = currentCourse;
 		Assignment theAssignment;
-		while (theIter.hasNext()) {
-			theAssignment = (Assignment) theIter.next();
+		while (assignmentIterator.hasNext()) {
+			theAssignment = (Assignment) assignmentIterator.next();
 			theCourseMenu.assignmentCombox.addItem(theAssignment);
 		}
 		return false;

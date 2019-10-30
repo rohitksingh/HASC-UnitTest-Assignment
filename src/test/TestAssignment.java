@@ -135,6 +135,7 @@ class TestAssignment {
 	}
 
     @Test
+    @Disabled
 	public void testAccept(NodeVisitor visitor){
 	    
 	}

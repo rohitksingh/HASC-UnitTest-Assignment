@@ -10,7 +10,7 @@ import javax.swing.*;
  */
 
 abstract public class AssignmentMenu extends JDialog {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	abstract void showMenu(Assignment assignment, Person person);

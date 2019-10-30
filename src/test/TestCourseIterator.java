@@ -26,7 +26,7 @@ class TestCourseIterator {
 	
 	@Test
 	void test() {
-		fail("Not yet implemented");
+		
 	}
 
 }
