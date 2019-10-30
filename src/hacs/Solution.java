@@ -16,6 +16,7 @@ import java.util.*;
  */
 
 public class Solution {
+	
 	String theAuthor = "";
 	String SolutionFileName = "";
 	Date theSubmitData = new Date();

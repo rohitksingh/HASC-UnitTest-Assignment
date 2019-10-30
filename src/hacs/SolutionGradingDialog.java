@@ -11,14 +11,16 @@ import java.awt.event.*;
  * @version 1.0
  */
 
-public class SolutionGradingDlg extends JDialog {
+public class SolutionGradingDialog extends JDialog {
+
+	private static final long serialVersionUID = 1L;
 	Solution theSolution;
 	JLabel jLabel1 = new JLabel();
 	JTextField tfGrad = new JTextField();
 	JButton buttonOK = new JButton();
 	JLabel labelSolutionFileName = new JLabel();
 
-	public SolutionGradingDlg() {
+	public SolutionGradingDialog() {
 		try {
 			jbInit();
 			setSize(316, 186);
@@ -51,12 +53,12 @@ public class SolutionGradingDlg extends JDialog {
 		theSolution = solution;
 		tfGrad.setText("" + theSolution.getGradeInt());
 		labelSolutionFileName.setText(theSolution.SolutionFileName);
-		show();
+		setVisible(true);
 	}
 
 	void buttonOK_actionPerformed(ActionEvent e) {
 		theSolution.theGrade = Integer.parseInt(tfGrad.getText());
-		hide();
+		setVisible(false);
 	}
 
 }

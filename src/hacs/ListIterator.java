@@ -13,7 +13,7 @@ import java.util.*;
 
 public class ListIterator implements Iterator<Object> {
 	ArrayList<Object> theList;
-	int CurrentNumber = -1;
+	int currentNumber = -1;
 
 	public ListIterator() {
 	}
@@ -22,23 +22,26 @@ public class ListIterator implements Iterator<Object> {
 		theList = list;
 	}
 
+	@Override
 	public boolean hasNext() {
-		if (CurrentNumber >= theList.size() - 1)
+		if (currentNumber >= theList.size() - 1)
 			return false;
 		else
 			return true;
 	}
 
+	@Override
 	public Object next() {
 		if (hasNext() == true) {
-			CurrentNumber++;
-			return theList.get(CurrentNumber);
+			currentNumber++;
+			return theList.get(currentNumber);
 		} else {
 			return null;
 		}
 	}
 
+	@Override
 	public void remove() {
-		theList.remove(CurrentNumber);
+		theList.remove(currentNumber);
 	}
 }

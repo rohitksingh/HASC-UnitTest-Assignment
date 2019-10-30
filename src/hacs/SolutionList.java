@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 public class SolutionList extends ArrayList<Solution> {
 
+	private static final long serialVersionUID = 1L;
+
 	public SolutionList() {
 	}
 }

@@ -3,7 +3,6 @@ package hacs;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
 import java.util.*;
 
 /**
@@ -15,7 +14,8 @@ import java.util.*;
 
 public class StudentAssignmentMenu extends AssignmentMenu {
 
-////  class AssignmentMenu
+	private static final long serialVersionUID = 1L;
+	//// class AssignmentMenu
 	private boolean boolSubmit = false;
 	private Solution theSolution;
 	private Assignment theAssignment;
@@ -67,6 +67,8 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 		bSubmit.setText("Submit");
 		bSubmit.setBounds(new Rectangle(476, 124, 79, 29));
 		bSubmit.addActionListener(new java.awt.event.ActionListener() {
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				bSubmit_actionPerformed(e);
 			}
@@ -74,6 +76,8 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 		bCancel.setText("Cancel");
 		bCancel.setBounds(new Rectangle(475, 164, 79, 29));
 		bCancel.addActionListener(new java.awt.event.ActionListener() {
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				bCancel_actionPerformed(e);
 			}
@@ -96,10 +100,11 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 	 * check if the student has already had a solution or not. if not , create a new
 	 * solution for the student. after showing the solution attatch the soluiton;
 	 */
-	public void ShowMenu(Assignment assignment, Person thePerson) {
+	@Override
+	public void showMenu(Assignment assignment, Person thePerson) {
 		theAssignment = assignment;
-		SolutionIterator theIter = theAssignment.GetSolutionIterator();
-		theSolution = (Solution) theIter.next(thePerson.UserName);
+		SolutionIterator theIter = theAssignment.getSolutionIterator();
+		theSolution = (Solution) theIter.next(thePerson.userName);
 		if (theSolution == null) {
 			tbSolution.setText("");
 			lGrade.setText("-1");
@@ -109,18 +114,18 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 
 		}
 
-		lAssignmentName.setText(theAssignment.AssName);
-		lDueDate.setText(theAssignment.DueDate.toString());
-		lSuggestedSolution.setText(theAssignment.SuggestSolution.SolutionFileName);
+		lAssignmentName.setText(theAssignment.assignmentName);
+		lDueDate.setText(theAssignment.dueDate.toString());
+		lSuggestedSolution.setText(theAssignment.suggestSolution.SolutionFileName);
 
-		show();
+		setVisible(true);
 
 		if (boolSubmit == true) {
 			if (theSolution == null) {
 				theSolution = new Solution();
 				theAssignment.AddSolution(theSolution);
 			}
-			theSolution.theAuthor = thePerson.UserName;
+			theSolution.theAuthor = thePerson.userName;
 			theSolution.SolutionFileName = tbSolution.getText();
 			theSolution.theSubmitData = new Date();
 		}
@@ -128,12 +133,13 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 
 	void bSubmit_actionPerformed(ActionEvent e) {
 		boolSubmit = true;
-		hide();
+
+		setVisible(false);
 	}
 
 	void bCancel_actionPerformed(ActionEvent e) {
 		boolSubmit = false;
-		hide();
+		setVisible(false);
 	}
 
 }

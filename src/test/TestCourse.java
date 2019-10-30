@@ -29,7 +29,7 @@ class TestCourse {
 		
 		Assignment assignment = new Assignment();	
 		int prevSize = course.assignmentList.size();
-		course.AddAssignment(assignment);
+		course.addAssignment(assignment);
 		int newSize = course.assignmentList.size();
 		assertTrue((newSize == prevSize+1));
 		
