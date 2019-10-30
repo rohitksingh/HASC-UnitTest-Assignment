@@ -1,4 +1,4 @@
-package test;
+package hacs.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
