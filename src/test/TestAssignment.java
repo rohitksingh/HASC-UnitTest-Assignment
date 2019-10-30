@@ -13,13 +13,16 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import java.lang.reflect.Field;
 
 import hacs.Assignment;
+import hacs.NodeVisitor;
 import hacs.Solution;
+import hacs.SolutionIterator;
 import hacs.SolutionList;
 
 @DisplayName("When running AssignmentTest")
-class AssignmentTest {
+class TestAssignment {
 		
 	@Nested
 	@DisplayName("test set due-date")
@@ -88,17 +91,52 @@ class AssignmentTest {
 		
 	}
 	
+	@Test
+	void testSetAssSpec(){
+	    	
+	}
 
 	@Test
-	public void testAddSolution(){
+    void testAddSolution(){
 		Solution mysolution = new Solution();
 		assertTrue(mysolution instanceof Solution);
 	}
 	
 	@Test
 	@Disabled
-	public void testAddSolutionToList(){
+	void testAddSolutionToList(){
 		
+	}
+	
+	@Test
+	void testSubmitSolution(){
+		
+	}
+
+	@Test
+	void testGetSolutionList(){
+		
+	}
+	
+	@Test
+	void testGetSolution(){
+	    
+	}
+	
+	@Test
+	void testToString(){
+		
+	}
+
+	@Test
+    void getDueDateString(){
+		
+	   
+	}
+
+    @Test
+	public void testAccept(NodeVisitor visitor){
+	    
 	}
 	
 }

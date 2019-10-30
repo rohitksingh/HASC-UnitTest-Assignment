@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import hacs.ClassCourseList;
 import hacs.Course;
 
-class ClassCourseListTest {
+class TestClassCourseList {
 
 	@Test
 	public void testFindCourseByCourseName() {
