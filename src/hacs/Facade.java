@@ -99,7 +99,7 @@ public class Facade {
 
 	// functions for StudentAssignmentMenu
 	void SubmitSolution(Assignment theAssignment, Solution theSolution) {
-		theAssignment.AddSolution(theSolution);
+		theAssignment.addSolution(theSolution);
 	}
 
 	//////////

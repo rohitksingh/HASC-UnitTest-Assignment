@@ -123,7 +123,7 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 		if (boolSubmit == true) {
 			if (theSolution == null) {
 				theSolution = new Solution();
-				theAssignment.AddSolution(theSolution);
+				theAssignment.addSolution(theSolution);
 			}
 			theSolution.theAuthor = thePerson.userName;
 			theSolution.SolutionFileName = tbSolution.getText();

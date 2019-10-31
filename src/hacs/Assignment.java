@@ -53,6 +53,7 @@ public class Assignment {
 	}
 
 	public void submitSolution() {
+		
 	}
 
 	public void getSolutionList() {
@@ -62,8 +63,8 @@ public class Assignment {
 	 * return the solution of the give name
 	 */
 	public Solution getSolution(String studentname) {
-		SolutionIterator Iterator = (SolutionIterator) theSolutionList.iterator();
-		return (Solution) Iterator.next(studentname);
+		Iterator<Solution> Iterator =  theSolutionList.iterator();
+		return (Solution) Iterator.next();
 	}
 
 	public Solution getSugSolution() {
@@ -88,4 +89,5 @@ public class Assignment {
 	public void accept(NodeVisitor visitor) {
 		visitor.visitAssignment(this);
 	}
+	
 }

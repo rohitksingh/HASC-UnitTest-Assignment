@@ -7,13 +7,11 @@ import java.util.Date;
 import java.util.Iterator;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import hacs.Assignment;
-import hacs.NodeVisitor;
 import hacs.Solution;
 
 @DisplayName("When running AssignmentTest")
@@ -126,26 +124,36 @@ class TestAssignment {
 		
 	}
 	
+	
 	@Test
+	@DisplayName("test get solution")
 	void testGetSolution(){
 	    
+		Solution mysolution = new Solution();
+        Assignment assignment = new Assignment();
+        assignment.addSolution(mysolution);
+        assertEquals(mysolution, assignment.getSolution(""));
+		
 	}
 	
 	@Test
+	@DisplayName("test toString")
 	void testToString(){
-		
+		Assignment assignment = new Assignment();
+		assertEquals(null, assignment.toString());	
 	}
 
 	@Test
+	@DisplayName("test get duedate string")
     void getDueDateString(){
-		
-	   
+	    
+		Date date = new Date();
+	    DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
+	    String expected = dateFormat.format(date);
+	    Assignment assignment = new Assignment();
+	    assignment.setDueDate(date);
+	    String actual = assignment.getDueDateString();
+	    assertEquals(expected, actual);
 	}
 
-    @Test
-    @Disabled
-	public void testAccept(NodeVisitor visitor){
-	    
-	}
-	
 }
