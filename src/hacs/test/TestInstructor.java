@@ -3,7 +3,6 @@ package hacs.test;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.hamcrest.core.IsInstanceOf;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

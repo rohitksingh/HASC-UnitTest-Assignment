@@ -38,14 +38,14 @@ public class Solution {
 		return (string);
 	}
 
-	String getGradeString() {
+	public String getGradeString() {
 		if (isReported())
 			return "" + theGrade;
 		else
 			return "-1";
 	}
 
-	int getGradeInt() {
+	public int getGradeInt() {
 		return theGrade;
 	}
 
@@ -55,5 +55,9 @@ public class Solution {
 
 	public boolean isReported() {
 		return reported;
+	}
+	
+	public void setGrade(int theGrade) {
+		this.theGrade = theGrade;
 	}
 }
