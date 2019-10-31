@@ -19,27 +19,42 @@ public class SolutionIterator implements Iterator {
 	public SolutionIterator() {
 	}
 
+	/**
+	 * Returns SolutionIterator
+	 * 
+	 * @param thesolutionlist
+	 */
 	public SolutionIterator(SolutionList thesolutionlist) {
 		solutionlist = thesolutionlist;
 		MoveToHead();
 	}
 
+	/**
+	 * Moves CurrentSolutionNumber: point to the location before the first element
+	 * 
+	 */
 	public void MoveToHead() {
-		/// CurrentSolutionNumber: point to the location before the first element
 		currentSolutionNumber = -1;
 	}
 
+	/**
+	 * returns if more solution exists in solutionlist
+	 * 
+	 * @return boolean
+	 */
 	@Override
 	public boolean hasNext() {
-		/** @todo: Implement this java.util.Iterator method */
 		if (currentSolutionNumber >= solutionlist.size() - 1)
 			return false;
 		else
 			return true;
-		// throw new java.lang.UnsupportedOperationException("Method hasNext() not yet
-		// implemented.");
 	}
 
+	/**
+	 * Returns next solution in the solutionlist
+	 * 
+	 * @return Object
+	 */
 	@Override
 	public Object next() {
 		/** @todo: Implement this java.util.Iterator method */
@@ -49,11 +64,14 @@ public class SolutionIterator implements Iterator {
 		} else {
 			return null;
 		}
-		// throw new java.lang.UnsupportedOperationException("Method next() not yet
-		// implemented.");
 	}
 
-	/// get the next Solution that fits the Username;
+	/**
+	 * Gets the next Solution that fits the Username;
+	 * 
+	 * @param UserName
+	 * @return Object
+	 */
 	public Object next(String UserName) {
 		Solution theSolution;
 		theSolution = (Solution) next();
@@ -66,12 +84,13 @@ public class SolutionIterator implements Iterator {
 		return null;
 	}
 
+	/**
+	 * Removes current solution from solution list
+	 * 
+	 */
 	@Override
 	public void remove() {
-		/** @todo: Implement this java.util.Iterator method */
 		solutionlist.remove(currentSolutionNumber);
-		// throw new java.lang.UnsupportedOperationException("Method remove() not yet
-		// implemented.");
 	}
 
 }

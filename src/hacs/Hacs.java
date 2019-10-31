@@ -6,9 +6,9 @@ package hacs;
  * @author Zhang ji Zhu Wei
  * @version 1.0
  * @author mjfindler
- * @version 2.0
- * 
- *          Update to Java 8
+ * @version 2.0 Update to Java 8
+ * @author rsingh92
+ * @version 3.0 refactoring
  */
 
 public class Hacs {
@@ -18,6 +18,11 @@ public class Hacs {
 	public Hacs() {
 	}
 
+	/**
+	 * Main function for the application
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
 		UserInfoItem userinfoitem = new UserInfoItem();

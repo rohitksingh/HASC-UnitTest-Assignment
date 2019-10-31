@@ -15,10 +15,25 @@ abstract public class NodeVisitor {
 	public NodeVisitor(Object visitee) {
 	}
 
+	/**
+	 * Visits Facade class
+	 * 
+	 * @param facade
+	 */
 	abstract public void visitFacade(Facade facade);
 
+	/**
+	 * Visits Course class
+	 * 
+	 * @param course
+	 */
 	abstract public void visitCourse(Course course);
 
+	/**
+	 * Visits assignment class
+	 * 
+	 * @param assignment
+	 */
 	abstract public void visitAssignment(Assignment assignment);
 
 }

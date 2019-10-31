@@ -26,7 +26,7 @@ public class LowLevelCourseMenu extends CourseMenu {
 	void showAddButtons() {
 		assignmentAddButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AssignmentAddButton_actionPerformed(e);
+				assignmentAddButton_actionPerformed(e);
 			}
 		});
 		assignmentAddButton.setText("Add");
@@ -59,7 +59,7 @@ public class LowLevelCourseMenu extends CourseMenu {
 		assignmentViewButton.setBounds(new Rectangle(290, 54, 79, 29));
 		assignmentViewButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AssignmentViewButton_actionPerformed(e);
+				assignmentViewButton_actionPerformed(e);
 			}
 		});
 		optionViewButton.setText("View");

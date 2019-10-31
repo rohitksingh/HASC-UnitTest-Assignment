@@ -9,6 +9,8 @@ import java.awt.event.*;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author rsingh92
+ * @version 2.0 refactoring
  */
 
 public class CourseSelectDialog extends JDialog {
@@ -27,6 +29,9 @@ public class CourseSelectDialog extends JDialog {
 	ButtonGroup buttonGroup1 = new ButtonGroup();
 	JButton buttonLogout = new JButton();
 
+	/**
+	 * CourseSelectDialog constructor
+	 */
 	public CourseSelectDialog() {
 		try {
 			jbInit();
@@ -37,6 +42,11 @@ public class CourseSelectDialog extends JDialog {
 		}
 	}
 
+	/**
+	 * Initializes resources
+	 * 
+	 * @throws Exception
+	 */
 	private void jbInit() throws Exception {
 		this.getContentPane().setLayout(null);
 		courseNameCom.setBounds(new Rectangle(155, 41, 203, 22));
@@ -72,11 +82,12 @@ public class CourseSelectDialog extends JDialog {
 		buttonGroup1.add(lowLevelRadio);
 	}
 
-	/*
-	 * show the theCourseList in a combox Show the Course type selection button
-	 * return the pointer pointing to the Course object return the Course Type
+	/**
+	 * Shows dialog for courselist
+	 * 
+	 * @param courseList
+	 * @return
 	 */
-
 	public Course showDialog(ClassCourseList courseList) {
 
 		theCourseList = courseList;
@@ -90,6 +101,11 @@ public class CourseSelectDialog extends JDialog {
 		return selectedCourse;
 	}
 
+	/**
+	 * Performs ok button click
+	 * 
+	 * @param e
+	 */
 	void okButton_actionPerformed(ActionEvent e) {
 		selectedCourse = (Course) courseNameCom.getSelectedItem();
 		if (highLevelRadio.isSelected())
@@ -99,10 +115,19 @@ public class CourseSelectDialog extends JDialog {
 		setVisible(false);
 	}
 
+	/**
+	 * Returns if logout
+	 * 
+	 * @return boolean
+	 */
 	public boolean isLogout() {
 		return m_bLogout;
 	}
 
+	/**
+	 * Performs logout
+	 * @param e
+	 */
 	void buttonLogout_actionPerformed(ActionEvent e) {
 		m_bLogout = true;
 		setVisible(false);

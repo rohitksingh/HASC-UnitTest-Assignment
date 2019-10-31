@@ -10,22 +10,26 @@ import java.io.*;
  * @version 1.0
  * @author mjfindler
  * @version 2.0 update to Java 8
+ * @author rsingh92
+ * @version 3.0 refactoring
  */
 
 public class ClassCourseList extends ArrayList<Course> {
-
-	
-	public static void main(String[] args) {
-		ClassCourseList list = new ClassCourseList();
-		list.initializeFromFile("src/CourseInfo.txt");
-	}
 	
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 *  ClassCourseList constructor
+	 */
 	public ClassCourseList() {
 	}
 
 	//// initialize the list by reading from the file.
+	/**
+	 * Reads all courses from file
+	 * 
+	 * @param theFileName
+	 */
 	public void initializeFromFile(String theFileName) {
 
 		BufferedReader bufferedReeader;
@@ -45,6 +49,12 @@ public class ClassCourseList extends ArrayList<Course> {
 		}
 	}
 
+	/**
+	 * Finds course by name
+	 * 
+	 * @param courseName
+	 * @return
+	 */
 	Course findCourseByCourseName(String courseName) {
 		int nCourseCount = size();
 		for (int i = 0; i < nCourseCount; i++) {

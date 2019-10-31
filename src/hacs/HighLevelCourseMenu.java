@@ -7,6 +7,8 @@ package hacs;
  * Company:      msu
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author rsingh92
+ * @version 2.0 refactoring
  */
 
 import java.awt.*;
@@ -14,17 +16,17 @@ import java.awt.event.*;
 
 public class HighLevelCourseMenu extends CourseMenu {
 
-	/*
-	 * JButton AssignmentAddButton = new JButton(); JRadioButton OptionRadio = new
-	 * JRadioButton(); JComboBox OptionCombo = new JComboBox(); JButton
-	 * OptionViewButton = new JButton(); JButton OptionAddButton = new JButton();
-	 */
-
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * HighlevelCourseMenu constructor
+	 */
 	public HighLevelCourseMenu() {
 	}
 
+	/**
+	 * Shows coursemenu
+	 */
 	void showMenu(Course theCourse) {
 		showViewButtons();
 		showRadios();
@@ -32,10 +34,13 @@ public class HighLevelCourseMenu extends CourseMenu {
 		setVisible(true);
 	}
 
+	/**
+	 * shows add button
+	 */
 	void showAddButtons() {
 		assignmentAddButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AssignmentAddButton_actionPerformed(e);
+				assignmentAddButton_actionPerformed(e);
 			}
 		});
 		assignmentAddButton.setText("Add");
@@ -46,6 +51,9 @@ public class HighLevelCourseMenu extends CourseMenu {
 		this.getContentPane().add(optionAddButton, null);
 	}
 
+	/**
+	 * Shows Radio buttons
+	 */
 	void showRadios() {
 		assignmentRadiao.setText("Assignment");
 		assignmentRadiao.setBounds(new Rectangle(21, 55, 103, 26));
@@ -55,6 +63,9 @@ public class HighLevelCourseMenu extends CourseMenu {
 		this.getContentPane().add(optionRadio, null);
 	}
 
+	/**
+	 * Shows commentbox
+	 */
 	void showComboxes() {
 		assignmentCombox.setBounds(new Rectangle(140, 57, 126, 22));
 		optionCombo.setBounds(new Rectangle(137, 127, 126, 22));
@@ -63,12 +74,15 @@ public class HighLevelCourseMenu extends CourseMenu {
 		refresh();
 	}
 
+	/**
+	 * Shows view button
+	 */
 	void showViewButtons() {
 		assignmentViewButton.setText("View");
 		assignmentViewButton.setBounds(new Rectangle(290, 54, 79, 29));
 		assignmentViewButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AssignmentViewButton_actionPerformed(e);
+				assignmentViewButton_actionPerformed(e);
 			}
 		});
 		optionViewButton.setText("View");
@@ -77,6 +91,9 @@ public class HighLevelCourseMenu extends CourseMenu {
 		this.getContentPane().add(optionViewButton, null);
 	}
 
+	/**
+	 * Shows label
+	 */
 	void showLabel() {
 		assignmentContentLable.setText("AssigmentContent");
 		assignmentContentLable.setBounds(new Rectangle(23, 186, 432, 99));

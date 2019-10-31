@@ -32,6 +32,11 @@ public class ReminderVisitor extends NodeVisitor {
 		m_Reminder = reminder;
 	}
 
+	/**
+	 * Visits Facade
+	 * 
+	 * @param facade
+	 */
 	@Override
 	public void visitFacade(Facade facade) {
 		CourseIterator courseList = new CourseIterator(facade.theCourseList);
@@ -41,6 +46,11 @@ public class ReminderVisitor extends NodeVisitor {
 		}
 	}
 
+	/**
+	 * Visits Course
+	 * 
+	 * @param course
+	 */
 	@Override
 	public void visitCourse(Course course) {
 		Iterator<Assignment> assignmentList = course.assignmentList.listIterator();
@@ -50,6 +60,11 @@ public class ReminderVisitor extends NodeVisitor {
 		}
 	}
 
+	/**
+	 * Visits assignment
+	 * 
+	 * @param assignment
+	 */
 	@Override
 	public void visitAssignment(Assignment assignment) {
 		Date today = new Date();

@@ -8,9 +8,9 @@ import java.io.*;
  * @author Zhang ji Zhu Wei
  * @version 1.0
  * @author mjfindler
- * @version 2.0
- * 
- *          Update to Jave 8
+ * @version 2.0 update to Java 8
+ * @author rsingh92
+ * @version 3.0 refactoring
  */
 
 public class Facade {
@@ -21,9 +21,18 @@ public class Facade {
 	ClassCourseList theCourseList;
 	Person thePerson;
 
+	/**
+	 * Constructor Facade
+	 */
 	public Facade() {
 	}
 
+	/**
+	 * Performs login for User
+	 * 
+	 * @param userinfoItem
+	 * @return
+	 */
 	static public boolean login(UserInfoItem userinfoItem) {
 		Login login = new Login();
 		login.setModal(true);
@@ -33,16 +42,12 @@ public class Facade {
 		return login.isExit();
 	}
 
-	/////////////////////////
-	// functions for CourseMenu
-	/*
-	 * When click the add button of the CourseMenu , call this function this
-	 * function will new an assignment fill the required infomation this function
-	 * will call InstructorAssignmentMenu or StudentAssignmentMenu according to the
-	 * type of the user it will not update the course menu. the coursemenu need to
-	 * refreshed outside the function
+	
+	/**
+	 * Adds assignment to course
+	 * 
+	 * @param theCourse
 	 */
-
 	void addAssignment(Course theCourse) {
 		AssignmentMenu theAssignmentMenu;
 		if (thePerson.type == 0)/// student
@@ -55,13 +60,11 @@ public class Facade {
 		theAssignmentMenu.showMenu(theAssignment, thePerson);
 		theCourse.addAssignment(theAssignment);
 	}
-
-	/*
-	 * When click the view button of the CourseMenu , call this function and pass
-	 * the pointer of the Assignment and the person pointer to this function this
-	 * function will new an assignment fill the required infomation this function
-	 * will call InstructorAssignmentMenu or StudentAssignmentMenu according to the
-	 * type of the user
+	
+	/**
+	 * Shows assignment
+	 * 
+	 * @param theAssignment
 	 */
 	void viewAssignment(Assignment theAssignment) {
 		AssignmentMenu theAssignmentMenu;
@@ -75,16 +78,21 @@ public class Facade {
 		theAssignmentMenu.showMenu(theAssignment, thePerson);
 	}
 
-	// functions for InstructorAssignmentMenu
-	/*
-	 * this function will grade the give Solution: theSolution this function calls
+	/**
+	 * Grades solution for a solution
+	 * 
+	 * @param theSolution
 	 */
-
 	void gradeSolution(Solution theSolution) {
 		SolutionMenu solutionMenu = new SolutionMenu();
 		solutionMenu.ShowMenu(theSolution);
 	}
 
+	/**
+	 * Reports solution
+	 * 
+	 * @param theAssignment
+	 */
 	void reportSolutions(Assignment theAssignment) {
 		Solution theSolution;
 		SolutionIterator theSolutionIterator;
@@ -95,19 +103,30 @@ public class Facade {
 			theSolution = (Solution) theSolutionIterator.next();
 		}
 	}
-	////////////////////
-
-	// functions for StudentAssignmentMenu
+	
+	/**
+	 * Submits solution
+	 * 
+	 * @param theAssignment
+	 * @param theSolution
+	 */
 	void submitSolution(Assignment theAssignment, Solution theSolution) {
 		theAssignment.addSolution(theSolution);
 	}
 
-	//////////
+	/**
+	 * Reminder function
+	 */
 	void remind() {
 		Reminder theReminder = new Reminder();
 		theReminder.showReminder(thePerson.getCourseList());
 	}
 
+	/**
+	 * Creates user from  UserInfo
+	 * 
+	 * @param userinfoitem
+	 */
 	void createUser(UserInfoItem userinfoitem) {
 		if (userinfoitem.userType == UserInfoItem.USER_TYPE.Student) /// student
 		{
@@ -118,8 +137,8 @@ public class Facade {
 		}
 		thePerson.userName = userinfoitem.strUserName;
 	}
-
-	/*
+	
+	/**
 	 * create a course list and intitialize it with the file CourseInfo.txt
 	 */
 	void createCourseList() {
@@ -127,10 +146,8 @@ public class Facade {
 		theCourseList.initializeFromFile("CourseInfo.txt");
 	}
 
-	/*
-	 * call this function after create user, create courselist read the
-	 * UserCourse.txt file match the coursename with theCouresList attach the
-	 * Matched course object to the new create user Facade.thePerson.CourseList
+	/**
+	 * Adds course to user's course list
 	 */
 	void attachCourseToUser() {
 		BufferedReader file;
@@ -155,27 +172,31 @@ public class Facade {
 		}
 	}
 
-	/*
-	 * get the user name from aline UserName:CourseName
+	/**
+	 * Gets the user name from aline UserName:CourseName
+	 * 
+	 * @param aline
+	 * @return String
 	 */
 	private String getUserName(String aline) {
 		int Sep = aline.lastIndexOf(':');
 		return aline.substring(0, Sep);
 	}
 
-	/*
-	 * get the CourseName from aline UserName:CourseName
+	/**
+	 * Gets the CourseName from aline UserName:CourseName
+	 * @param aline
+	 * @return String
 	 */
 	private String getCourseName(String aline) {
 		int Sep = aline.lastIndexOf(':');
 		return aline.substring(Sep + 1, aline.length());
 	}
 
-	/*
-	 * show the course selection dlg, show the course attatched to theperson and
-	 * return the selected course and assign the course to the class member
-	 * theSelecteCourse, the Course Level to CourseLevel CourseLeve=0 High,
-	 * CourseLeve=1 Low
+	/**
+	 * Selects course 
+	 * 
+	 * @return String
 	 */
 	public boolean selectCourse() {
 		CourseSelectDialog theDlg = new CourseSelectDialog();
@@ -185,21 +206,21 @@ public class Facade {
 		return theDlg.isLogout();
 	}
 
-	/*
-	 * call the thePerson.CreateCourseMenu according to the really object(student or
-	 * instructor) and the nCourseLevel it will call different menu creater and show
-	 * the menu;
+	/**
+	 * Performs course operation
+	 * 
+	 * @return boolean
 	 */
-
 	public boolean courseOperation() {
 		thePerson.createCourseMenu(theSelecteCourse, nCourseLevel);
 		return thePerson.showMenu();//// 0: logout 1 select an other course
 	}
 
-	/*
-	 * find the course in theCourseList that matches strCourseName 1 create a
-	 * CourseIterator for the List 2 Find the Course with the Iterator return the
-	 * pointer of the Course if not fine, return null;
+	/**
+	 * Returns course from course list using coursename
+	 * 
+	 * @param courseName
+	 * @return Course
 	 */
 	private Course findCourseByCourseName(String courseName) {
 		CourseIterator Iterator = new CourseIterator(theCourseList);

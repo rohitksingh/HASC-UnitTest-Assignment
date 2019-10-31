@@ -26,6 +26,11 @@ public class Solution {
 	public Solution() {
 	}
 
+	/**
+	 * Overrides toString 
+	 * 
+	 * @return String
+	 */
 	@Override
 	public String toString() {
 		String string;
@@ -38,6 +43,11 @@ public class Solution {
 		return (string);
 	}
 
+	/**
+	 * Returns grade string 
+	 * 
+	 * @return String
+	 */
 	public String getGradeString() {
 		if (isReported())
 			return "" + theGrade;
@@ -45,18 +55,38 @@ public class Solution {
 			return "-1";
 	}
 
+	/**
+	 * Returns grade
+	 * 
+	 * @return int 
+	 */
 	public int getGradeInt() {
 		return theGrade;
 	}
 
+	/**
+	 * Sets if the solution is reported
+	 * 
+	 * @param reported
+	 */
 	public void setReported(boolean reported) {
 		this.reported = reported;
 	}
 
+	/**
+	 * Returns if the solution is reported
+	 * 
+	 * @return boolean
+	 */
 	public boolean isReported() {
 		return reported;
 	}
 	
+	/**
+	 * Sets grade for the solution
+	 * 
+	 * @param theGrade
+	 */
 	public void setGrade(int theGrade) {
 		this.theGrade = theGrade;
 	}

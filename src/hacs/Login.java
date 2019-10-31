@@ -14,9 +14,9 @@ import java.io.*;
  * @author Zhang ji Zhu Wei
  * @version 1.0
  * @author mjfindler
- * @version 2.0
- * 
- *          Update to Java 8
+ * @version 2.0 Update to Java 8
+ * @author rsingh92
+ * @version 3.0 refactoring
  */
 
 public class Login extends JDialog {
@@ -32,10 +32,13 @@ public class Login extends JDialog {
 	JRadioButton studentRadio = new JRadioButton();
 	JRadioButton instructorRadio = new JRadioButton();
 	ButtonGroup buttonGroup1 = new ButtonGroup();
-	////// Attributes Added By me
+	
 	private String userBox = null;
 	private USER_TYPE userType = USER_TYPE.Student; // default to Student
 
+	/**
+	 * Login constructor
+	 */
 	public Login() {
 		try {
 			jbInit();
@@ -45,6 +48,11 @@ public class Login extends JDialog {
 		}
 	}
 
+	/**
+	 * Initialize resource
+	 * 
+	 * @throws Exception
+	 */
 	private void jbInit() throws Exception {
 		this.getContentPane().setLayout(null);
 		jLabel1.setText("UserName");
@@ -84,6 +92,11 @@ public class Login extends JDialog {
 		buttonGroup1.add(instructorRadio);
 	}
 
+	/**
+	 * Perfroms login
+	 * 
+	 * @param e
+	 */
 	void loginButton_actionPerformed(ActionEvent e) {
 		BufferedReader file;
 		m_bExit = false;
@@ -118,36 +131,61 @@ public class Login extends JDialog {
 
 	}
 
-	/*
+	/**
 	 * get the user name from aline UserName:Password
+	 * 
+	 * @param aline
+	 * @return String
 	 */
 	private String getUserName(String aline) {
 		int Sep = aline.lastIndexOf(':');
 		return aline.substring(0, Sep);
 	}
 
-	/*
-	 * get the password from aline UserName:Password
+	/**
+	 * Gets the password from aline UserName:Password
+	 * 
+	 * @param aline
+	 * @return String
 	 */
 	private String getPassword(String aline) {
 		int Sep = aline.lastIndexOf(':');
 		return aline.substring(Sep + 1, aline.length());
 	}
 
-	/* after login get the UserName of the login interface */
+	/**
+	 * Gets the UserName of the login
+	 * 
+	 * @return String
+	 */
 	public String getUserName() {
 		return userBox;
 	}
 
-	/* after login get the userType of the login interface */
+	
+	/**
+	 * Gets the userType of the login
+	 * 
+	 * @return USER_TYPE
+	 */
 	public USER_TYPE getUserType() {
 		return userType;
 	}
 
+	/**
+	 * Returns isExit
+	 * 
+	 * @return boolean
+	 */
 	public boolean isExit() {
 		return m_bExit;
 	}
 
+	/**
+	 * Performs exit action
+	 * 
+	 * @param e
+	 */
 	void buttonExit_actionPerformed(ActionEvent e) {
 		m_bExit = true;
 		setVisible(false);

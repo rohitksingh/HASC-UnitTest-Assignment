@@ -10,6 +10,8 @@ import java.util.Iterator;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author rsingh92
+ * @version 2.0 refactoring
  */
 
 abstract public class CourseMenu extends JDialog {
@@ -30,6 +32,9 @@ abstract public class CourseMenu extends JDialog {
 	JButton buttonChangeCourse = new JButton();
 	JButton buttonLogout = new JButton();
 
+	/**
+	 * CourseMenu constructor
+	 */
 	public CourseMenu() {
 
 		try {
@@ -41,6 +46,11 @@ abstract public class CourseMenu extends JDialog {
 		setSize(503, 294);
 	}
 
+	/**
+	 * Init function
+	 * 
+	 * @throws Exception
+	 */
 	private void jbInit() throws Exception {
 		buttonChangeCourse.setText("ChangeCourse");
 		buttonChangeCourse.setBounds(new Rectangle(101, 211, 73, 37));
@@ -62,38 +72,61 @@ abstract public class CourseMenu extends JDialog {
 		this.getContentPane().add(buttonLogout, null);
 	}
 
-	/*
-	 * when the add button is pressed, call add assignment function of facade, after
-	 * that refresh window
+	/**
+	 * Shows menu
+	 * 
+	 * @param theCourse
 	 */
-
-	/*
-	 * when the add button is pressed, call ViewAssignment function of facade, after
-	 * that refresh window
-	 */
-
 	abstract void showMenu(Course theCourse);
 
+	/**
+	 * shows add button
+	 */
 	abstract void showAddButtons();
 
+	/**
+	 * shows view button
+	 */
 	abstract void showViewButtons();
 
+	/**
+	 * shows radio buttons
+	 */
 	abstract void showRadios();
 
+	/**
+	 * shows commentbox
+	 */
 	abstract void showComboxes();
 
+	/**
+	 * shows label
+	 */
 	abstract void showLabel();
 
-	void AssignmentAddButton_actionPerformed(ActionEvent e) {
+	/**
+	 * Add button listener
+	 * 
+	 * @param e
+	 */
+	void assignmentAddButton_actionPerformed(ActionEvent e) {
 		Hacs.theFacade.addAssignment(theCourse);
 		refresh();
 	}
 
-	void AssignmentViewButton_actionPerformed(ActionEvent e) {
+	/**
+	 * assignment add button action listener
+	 * 
+	 * @param e
+	 */
+	void assignmentViewButton_actionPerformed(ActionEvent e) {
 		Assignment theAss = (Assignment) assignmentCombox.getSelectedItem();
 		Hacs.theFacade.viewAssignment(theAss);
 	}
 
+	/**
+	 * Refreshes items in comment box
+	 */
 	void refresh() {
 		assignmentCombox.removeAllItems();
 		Iterator<Assignment> iterator = theCourse.assignmentList.iterator();
@@ -102,16 +135,31 @@ abstract public class CourseMenu extends JDialog {
 		}
 	}
 
+	/**
+	 * Performs change course action
+	 * 
+	 * @param e
+	 */
 	void buttonChangeCourse_actionPerformed(ActionEvent e) {
 		bLogout = false;
 		setVisible(false);
 	}
 
+	/**
+	 * Performs logout
+	 * 
+	 * @param e
+	 */
 	void buttonLogout_actionPerformed(ActionEvent e) {
 		bLogout = true;
 		setVisible(false);
 	}
 
+	/**
+	 * Returns if logout
+	 * 
+	 * @return boolean
+	 */
 	boolean ifLogout() {
 		return bLogout;
 	}

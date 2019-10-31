@@ -8,6 +8,13 @@ import org.junit.jupiter.api.Test;
 
 import hacs.Solution;
 
+/**
+ * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
+ * 
+ * @author rsingh92
+ * @version 3.0 Testing
+ */
+
 @DisplayName("When running solution")
 public class TestSolution {
 

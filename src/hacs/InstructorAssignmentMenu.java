@@ -10,16 +10,16 @@ import java.text.DateFormat;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author rsingh92
+ * @version 2.0 refactoring
  */
 
 public class InstructorAssignmentMenu extends AssignmentMenu {
 
 	private static final long serialVersionUID = 1L;
-	//// class AssignmentMenu
 	private Solution theSolution;
 	private Assignment theAssignment;
 	JComboBox<Solution> combSolutionList = new JComboBox<Solution>();
-	////////////////////////
 
 	JTextField tbAssignmentName = new JTextField();
 	JTextField tbDueDate = new JTextField();
@@ -32,6 +32,9 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
 	JButton buttonReport = new JButton();
 	JButton buttonClose = new JButton();
 
+	/**
+	 * InstructorAssignmentMenu constructor
+	 */
 	public InstructorAssignmentMenu() {
 		try {
 			jbInit();
@@ -40,6 +43,11 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
 		}
 	}
 
+	/**
+	 * Initiates resources
+	 * 
+	 * @throws Exception
+	 */
 	private void jbInit() throws Exception {
 		jLabel1.setText("Assignment Name");
 		jLabel1.setBounds(new Rectangle(25, 31, 118, 18));
@@ -88,6 +96,9 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
 		this.getContentPane().add(buttonReport, null);
 	}
 
+	/**
+	 * Shows menu
+	 */
 	@Override
 	public void showMenu(Assignment assignment, Person person) {
 		theAssignment = assignment;
@@ -100,6 +111,11 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
 		setVisible(true);
 	}
 
+	/**
+	 * Performs close button action
+	 * 
+	 * @param e
+	 */
 	void buttonClose_actionPerformed(ActionEvent e) {
 		theAssignment.assignmentName = tbAssignmentName.getText();
 		DateFormat tempDateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
@@ -111,6 +127,11 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
 		setVisible(false);
 	}
 
+	/**
+	 * Performs grading
+	 * 
+	 * @param e
+	 */
 	void buttonGrade_actionPerformed(ActionEvent e) {
 		Solution theSolution = (Solution) combSolutionList.getSelectedItem();
 		if (theSolution == null)
@@ -120,6 +141,11 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
 		refreshSolutionList();
 	}
 
+	/**
+	 * Performs report
+	 * 
+	 * @param e
+	 */
 	void buttonReport_actionPerformed(ActionEvent e) {
 		SolutionIterator iter = new SolutionIterator(theAssignment.theSolutionList);
 		while (iter.hasNext()) {
@@ -129,6 +155,9 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
 		refreshSolutionList();
 	}
 
+	/**
+	 * Refreshes solution list
+	 */
 	private void refreshSolutionList() {
 		combSolutionList.removeAllItems();
 		SolutionIterator SolIter = new SolutionIterator(theAssignment.theSolutionList);

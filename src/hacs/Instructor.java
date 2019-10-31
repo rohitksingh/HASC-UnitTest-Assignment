@@ -5,6 +5,8 @@ package hacs;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author rsingh92
+ * @version 2.0 refactoring
  */
 
 public class Instructor extends Person {
@@ -12,6 +14,12 @@ public class Instructor extends Person {
 		type = 1;// type=1 :instructor
 	}
 
+	/**
+	 * Returns course menu based on the courselevel
+	 * 
+	 * @return CourseMenu 
+	 */
+	@Override
 	public CourseMenu createCourseMenu(Course theCourse, int theLevel) {
 		if (theLevel == 0)/// 0: Highlevel defined in CourseSeletDlg.
 		{
@@ -23,6 +31,9 @@ public class Instructor extends Person {
 		return theCourseMenu;
 	}
 
+	/**
+	 * Shows menu
+	 */
 	public boolean showMenu() {
 		super.showMenu();
 		showAddButton();

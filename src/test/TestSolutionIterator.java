@@ -13,6 +13,13 @@ import hacs.Solution;
 import hacs.SolutionIterator;
 import hacs.SolutionList;
 
+/**
+ * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
+ * 
+ * @author rsingh92
+ * @version 3.0 Testing
+ */
+
 @DisplayName("When running Solution Iterator")
 class TestSolutionIterator {
 
