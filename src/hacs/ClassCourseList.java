@@ -14,23 +14,30 @@ import java.io.*;
 
 public class ClassCourseList extends ArrayList<Course> {
 
+	
+	public static void main(String[] args) {
+		ClassCourseList list = new ClassCourseList();
+		list.initializeFromFile("src/CourseInfo.txt");
+	}
+	
 	private static final long serialVersionUID = 1L;
 
 	public ClassCourseList() {
 	}
 
 	//// initialize the list by reading from the file.
-	void initializeFromFile(String theFileName) {
+	public void initializeFromFile(String theFileName) {
 
 		BufferedReader bufferedReeader;
 		try {
 
 			String strCourseName = null;
-			bufferedReeader = new BufferedReader(new FileReader("CourseInfo.txt"));
+			bufferedReeader = new BufferedReader(new FileReader(theFileName));
 			while ((strCourseName = bufferedReeader.readLine()) != null) {
 				Course theCourse;
 				theCourse = new Course(strCourseName, 0);
 				// theCourse.CourseName= strCourseName;
+				System.out.println(theCourse);
 				add(theCourse);
 			}
 		} catch (Exception ee) {
