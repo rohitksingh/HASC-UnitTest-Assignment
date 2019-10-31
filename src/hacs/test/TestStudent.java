@@ -11,8 +11,8 @@ import hacs.HighLevelCourseMenu;
 import hacs.Instructor;
 import hacs.LowLevelCourseMenu;
 
-@DisplayName("When running test instructor")
-class TestInstructor {
+@DisplayName("While running student")
+class TestStudent {
 
 	@Test
 	@DisplayName("test create high level course menu")
