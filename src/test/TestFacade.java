@@ -1,4 +1,4 @@
-package hacs.test;
+package test;
 
 public class TestFacade {
 

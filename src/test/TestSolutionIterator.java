@@ -1,4 +1,4 @@
-package hacs.test;
+package test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
