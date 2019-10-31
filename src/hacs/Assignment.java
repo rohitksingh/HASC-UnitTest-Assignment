@@ -24,15 +24,15 @@ public class Assignment {
 	public Assignment() {
 	}
 
-	public void SetDueDate(Date theDueDate) {
+	public void setDueDate(Date theDueDate) {
 		this.dueDate = theDueDate;
 	}
 
-	public void SetAssSpec(String theSpec) {
+	public void setAssSpec(String theSpec) {
 		this.assignmentSpec = theSpec;
 	}
 
-	public boolean IsOverDue() {
+	public boolean isOverDue() {
 		Date today;
 		today = new Date();
 		if (today.after(this.dueDate)) {
@@ -42,17 +42,17 @@ public class Assignment {
 		}
 	}
 
-	public Solution AddSolution() {
+	public Solution addSolution() {
 		Solution mySolution = new Solution();
 		return mySolution;
 	}
 
 	//// add the theSolution to the Solutionlist
-	public void AddSolution(Solution theSolution) {
+	public void addSolution(Solution theSolution) {
 		theSolutionList.add(theSolution);
 	}
 
-	public void SubmitSolution() {
+	public void submitSolution() {
 	}
 
 	public void getSolutionList() {
@@ -75,6 +75,7 @@ public class Assignment {
 		return theSolutionIterator;
 	}
 
+	@Override
 	public String toString() {
 		return assignmentName;
 	}
