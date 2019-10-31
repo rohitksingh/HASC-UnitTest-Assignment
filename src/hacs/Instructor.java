@@ -15,7 +15,7 @@ public class Instructor extends Person {
 	public CourseMenu createCourseMenu(Course theCourse, int theLevel) {
 		if (theLevel == 0)/// 0: Highlevel defined in CourseSeletDlg.
 		{
-			theCourseMenu = new HighLevelCourseMenu();
+			theCourseMenu = new LowLevelCourseMenu();
 		} else/// 1: LowLevel
 		{
 			theCourseMenu = new HighLevelCourseMenu();
