@@ -28,7 +28,6 @@ public class Facade {
 		Login login = new Login();
 		login.setModal(true);
 		login.setVisible(true);
-		;
 		userinfoItem.strUserName = login.getName();
 		userinfoItem.userType = login.getUserType();
 		return login.isExit();
