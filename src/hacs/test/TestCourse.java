@@ -41,10 +41,4 @@ class TestCourse {
 		assertEquals("SER515", course.toString());		
 	}
 	
-	@Test
-	@DisplayName("test accept nodevisitor")
-	void testAcceptVisitor() {
-		
-	}
-
 }

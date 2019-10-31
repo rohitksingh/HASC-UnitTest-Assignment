@@ -48,5 +48,9 @@ class TestPerson {
 		assertEquals(courseList, personCourseList);
 	}
 	
+	void getName() {
+		System.out.println("Hello");
+	}
+	
 
 }

@@ -14,10 +14,8 @@ class TestClassCourseList {
 	   	
 		String subjectName = "SER515";
 		ClassCourseList courseList = new ClassCourseList();
-		Course ser515 = new Course(subjectName, 2);
-			   
-		
-		
+		Course ser515 = new Course(subjectName, 2);	
+
 	}
 
 }

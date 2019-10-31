@@ -10,7 +10,7 @@ import java.io.*;
  * @author mjfindler
  * @version 2.0
  * 
- * Update to Jave 8
+ *          Update to Jave 8
  */
 
 public class Facade {
@@ -27,7 +27,8 @@ public class Facade {
 	static public boolean login(UserInfoItem userinfoItem) {
 		Login login = new Login();
 		login.setModal(true);
-		login.setVisible(true);;
+		login.setVisible(true);
+		;
 		userinfoItem.strUserName = login.getName();
 		userinfoItem.userType = login.getUserType();
 		return login.isExit();
@@ -43,7 +44,7 @@ public class Facade {
 	 * refreshed outside the function
 	 */
 
-	void AddAssignment(Course theCourse) {
+	void addAssignment(Course theCourse) {
 		AssignmentMenu theAssignmentMenu;
 		if (thePerson.type == 0)/// student
 		{
@@ -63,7 +64,7 @@ public class Facade {
 	 * will call InstructorAssignmentMenu or StudentAssignmentMenu according to the
 	 * type of the user
 	 */
-	void ViewAssignment(Assignment theAssignment) {
+	void viewAssignment(Assignment theAssignment) {
 		AssignmentMenu theAssignmentMenu;
 		if (thePerson.type == 0)/// student
 		{
@@ -80,12 +81,12 @@ public class Facade {
 	 * this function will grade the give Solution: theSolution this function calls
 	 */
 
-	void GradeSolution(Solution theSolution) {
+	void gradeSolution(Solution theSolution) {
 		SolutionMenu solutionMenu = new SolutionMenu();
 		solutionMenu.ShowMenu(theSolution);
 	}
 
-	void ReportSolutions(Assignment theAssignment) {
+	void reportSolutions(Assignment theAssignment) {
 		Solution theSolution;
 		SolutionIterator theSolutionIterator;
 		theSolutionIterator = theAssignment.getSolutionIterator();
@@ -98,17 +99,17 @@ public class Facade {
 	////////////////////
 
 	// functions for StudentAssignmentMenu
-	void SubmitSolution(Assignment theAssignment, Solution theSolution) {
+	void submitSolution(Assignment theAssignment, Solution theSolution) {
 		theAssignment.addSolution(theSolution);
 	}
 
 	//////////
-	void Remind() {
+	void remind() {
 		Reminder theReminder = new Reminder();
 		theReminder.showReminder(thePerson.getCourseList());
 	}
 
-	void CreateUser(UserInfoItem userinfoitem) {
+	void createUser(UserInfoItem userinfoitem) {
 		if (userinfoitem.userType == UserInfoItem.USER_TYPE.Student) /// student
 		{
 			thePerson = new Student();
@@ -122,7 +123,7 @@ public class Facade {
 	/*
 	 * create a course list and intitialize it with the file CourseInfo.txt
 	 */
-	void CreateCourseList() {
+	void createCourseList() {
 		theCourseList = new ClassCourseList();
 		theCourseList.initializeFromFile("CourseInfo.txt");
 	}
@@ -132,15 +133,15 @@ public class Facade {
 	 * UserCourse.txt file match the coursename with theCouresList attach the
 	 * Matched course object to the new create user Facade.thePerson.CourseList
 	 */
-	void AttachCourseToUser() {
+	void attachCourseToUser() {
 		BufferedReader file;
 		try {
 			file = new BufferedReader(new FileReader("UserCourse.txt"));
 			String aline, strUserName, strCourseName;
 			while ((aline = file.readLine()) != null) // not the EOF
 			{
-				strUserName = GetUserName(aline);
-				strCourseName = GetCourseName(aline);
+				strUserName = getUserName(aline);
+				strCourseName = getCourseName(aline);
 				if (strUserName.compareTo(thePerson.userName) == 0) /// the UserName mateches
 				{
 					theSelecteCourse = findCourseByCourseName(strCourseName);
@@ -151,14 +152,14 @@ public class Facade {
 				}
 			}
 		} catch (Exception ee) {
-			;
+
 		}
 	}
 
 	/*
 	 * get the user name from aline UserName:CourseName
 	 */
-	private String GetUserName(String aline) {
+	private String getUserName(String aline) {
 		int Sep = aline.lastIndexOf(':');
 		return aline.substring(0, Sep);
 	}
@@ -166,7 +167,7 @@ public class Facade {
 	/*
 	 * get the CourseName from aline UserName:CourseName
 	 */
-	private String GetCourseName(String aline) {
+	private String getCourseName(String aline) {
 		int Sep = aline.lastIndexOf(':');
 		return aline.substring(Sep + 1, aline.length());
 	}
@@ -177,7 +178,7 @@ public class Facade {
 	 * theSelecteCourse, the Course Level to CourseLevel CourseLeve=0 High,
 	 * CourseLeve=1 Low
 	 */
-	public boolean SelectCourse() {
+	public boolean selectCourse() {
 		CourseSelectDialog theDlg = new CourseSelectDialog();
 		theSelecteCourse = theDlg.showDialog(thePerson.courseList);
 		thePerson.currentCourse = theSelecteCourse;
