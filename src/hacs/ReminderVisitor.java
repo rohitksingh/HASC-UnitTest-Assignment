@@ -76,7 +76,6 @@ public class ReminderVisitor extends NodeVisitor {
 		if (nDueDate <= (ntoday + 1) && nDueDate >= ntoday) /// upcoming
 		{
 			m_Reminder = new Reminder();
-			System.out.println(m_Reminder==null);
 			m_Reminder.listUpcoming.add("today is " + today.toString() + " " + assignment.assignmentName
 					+ " Due Date is " + assignment.getDueDateString());
 		}
