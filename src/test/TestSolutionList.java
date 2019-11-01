@@ -11,6 +11,9 @@ import hacs.SolutionList;
 @DisplayName("When running Test solution")
 class TestSolutionList {
 
+	/**
+	 * Tests if solution was added into solution-list
+	 */
 	@Test
 	@DisplayName("test add solution")
 	void testAddSolution()

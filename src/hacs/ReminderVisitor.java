@@ -75,6 +75,8 @@ public class ReminderVisitor extends NodeVisitor {
 		int nDueDate = calendar.get(Calendar.DAY_OF_YEAR);
 		if (nDueDate <= (ntoday + 1) && nDueDate >= ntoday) /// upcoming
 		{
+			m_Reminder = new Reminder();
+			System.out.println(m_Reminder==null);
 			m_Reminder.listUpcoming.add("today is " + today.toString() + " " + assignment.assignmentName
 					+ " Due Date is " + assignment.getDueDateString());
 		}
@@ -83,4 +85,16 @@ public class ReminderVisitor extends NodeVisitor {
 			m_Reminder.listOverdue.add(assignment.assignmentName + " Due Date is " + assignment.getDueDateString());
 		}
 	}
+	
+	
+	
+	public static void main(String[] args) {
+		ReminderVisitor reminderVisitor = new ReminderVisitor();
+		Assignment assignment = new Assignment();
+		assignment.setDueDate(new Date());
+		reminderVisitor.visitAssignment(assignment);
+		
+	}
+	
+	
 }

@@ -17,9 +17,17 @@ public class SolutionList extends ArrayList<Solution> {
 
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Constructor Solution list
+	 */
 	public SolutionList() {
 	}
 	
+	/**
+	 * Tests add solution to solutionlist
+	 * 
+	 * @param solution
+	 */
 	public void addSolution(Solution solution) {
 		addSolution(solution);
 	}

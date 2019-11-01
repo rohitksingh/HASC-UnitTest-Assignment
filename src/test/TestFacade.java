@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import hacs.ClassCourseList;
 import hacs.Course;
 import hacs.Facade;
 import hacs.Person;
@@ -22,10 +23,22 @@ class TestFacade {
         userInfo = new UserInfoItem();
 	}
 	
+	@Test
+	@DisplayName("test create course list")
+    void testcreateCourseList() {
+    	
+        Facade facade = new Facade();
+        facade.createCourseList();
+        ClassCourseList courses = facade.theCourseList;
+        String course1 = "CSE870";
+        String courseName = courses.findCourseByCourseName(course1).toString();
+        assertEquals(course1, courseName);
+        
+    }
 	
 	@Test
 	@DisplayName("test attach course to user")
-    void attachCourseToUserTest() {
+    void testAttachCourseToUser() {
     	
         String username = "Inst1";
         userInfo.setStrUserName(username);
@@ -49,7 +62,6 @@ class TestFacade {
         userInfo.setStrUserName(name);
         facade.createUser(userInfo);
         assertEquals(name, userInfo.getStrUserName());  
-        
 	}
-
+	
 }

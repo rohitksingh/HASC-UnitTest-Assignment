@@ -18,7 +18,7 @@ public class Facade {
 	public int userType;
 	private Course theSelecteCourse = null;
 	private int nCourseLevel = 0;
-	ClassCourseList theCourseList;
+	public ClassCourseList theCourseList;
 	Person thePerson;
 
 	/**
@@ -145,6 +145,7 @@ public class Facade {
 		theCourseList = new ClassCourseList();
 		theCourseList.initializeFromFile("src/CourseInfo.txt");
 	}
+	
 
 	/**
 	 * Adds course to user's course list
