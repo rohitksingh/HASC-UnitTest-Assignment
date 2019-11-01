@@ -10,12 +10,13 @@ import java.util.*;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author rsingh92
+ * @version 2.0 refactoring    
  */
 
 public class StudentAssignmentMenu extends AssignmentMenu {
 
 	private static final long serialVersionUID = 1L;
-	//// class AssignmentMenu
 	private boolean boolSubmit = false;
 	private Solution theSolution;
 	private Assignment theAssignment;
@@ -34,6 +35,9 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 	JLabel jLabel6 = new JLabel();
 	JLabel jLabel7 = new JLabel();
 
+	/**
+	 * Constructor Student AssignmntMenu
+	 */
 	public StudentAssignmentMenu() {
 		try {
 			jbInit();
@@ -42,6 +46,11 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 		}
 	}
 
+	/**
+	 * Initiates view resources
+	 * 
+	 * @throws Exception
+	 */
 	private void jbInit() throws Exception {
 		jLabel1.setText("Assignment : ");
 		jLabel1.setBounds(new Rectangle(20, 36, 91, 18));
@@ -96,9 +105,8 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 		this.getContentPane().add(bCancel, null);
 	}
 
-	/*
-	 * check if the student has already had a solution or not. if not , create a new
-	 * solution for the student. after showing the solution attatch the soluiton;
+	/**
+	 * Shows Menu based on the usertype
 	 */
 	@Override
 	public void showMenu(Assignment assignment, Person thePerson) {
@@ -131,12 +139,22 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 		}
 	}
 
+	/**
+	 * Performs submit button click action
+	 * 
+	 * @param e
+	 */
 	void bSubmit_actionPerformed(ActionEvent e) {
 		boolSubmit = true;
 
 		setVisible(false);
 	}
 
+	/**
+	 * Performs cancel button click action
+	 * 
+	 * @param e
+	 */
 	void bCancel_actionPerformed(ActionEvent e) {
 		boolSubmit = false;
 		setVisible(false);

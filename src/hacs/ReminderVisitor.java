@@ -9,25 +9,25 @@ import java.util.*;
  * @author Zhang ji Zhu Wei
  * @version 1.0
  * @author mjfindler
- * @version 2.0
- * 
- *          update to Java 8
+ * @version 2.0 update to Java 8
+ * @author rsingh92
+ * @version 3.0 refactoring
  */
-
-/*
- * this class will iterate the course list attatched to on student and in turn
- * iterate the assignments of a course. after Function Visit(CourseList) it will
- * point to the location before the fist class, hasNext will retrun weather
- * there is next item. the next() will return the next Item Assignment;
- */
-
 public class ReminderVisitor extends NodeVisitor {
 
 	Reminder m_Reminder;
 
+	/**
+	 * Constructor Remindervisitor
+	 */
 	public ReminderVisitor() {
 	}
 
+	/**
+	 * Constructor Remindervisitor
+	 * 
+	 * @param reminder
+	 */
 	public ReminderVisitor(Reminder reminder) {
 		m_Reminder = reminder;
 	}

@@ -7,15 +7,19 @@ import java.util.Iterator;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author rsingh92
+ * @version 2.0 refactoring
  */
 
 @SuppressWarnings("rawtypes")
 public class SolutionIterator implements Iterator {
 	SolutionList solutionlist;
 
-	/// CurrentSolutionNumber: point to the location before the first element
 	int currentSolutionNumber = -1;
 
+	/**
+	 * Constructor SolutionIterator
+	 */
 	public SolutionIterator() {
 	}
 

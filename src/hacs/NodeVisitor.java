@@ -5,13 +5,23 @@ package hacs;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author rsingh92
+ * @version 2.0 refactoring
  */
 
 abstract public class NodeVisitor {
 
+	/**
+	 * NodeVisitor constructor
+	 */
 	public NodeVisitor() {
 	}
 
+	/**
+	 * NodeVisitor constructor
+	 * 
+	 * @param visitee
+	 */
 	public NodeVisitor(Object visitee) {
 	}
 

@@ -9,6 +9,8 @@ import java.awt.event.*;
  * 
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author rsingh92
+ * @version 2.0 refactoring
  */
 
 public class Reminder extends JDialog {

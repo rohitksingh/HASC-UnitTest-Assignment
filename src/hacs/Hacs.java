@@ -15,6 +15,9 @@ public class Hacs {
 
 	static Facade theFacade = new Facade();
 
+	/**
+	 * Hasc constructor
+	 */
 	public Hacs() {
 	}
 

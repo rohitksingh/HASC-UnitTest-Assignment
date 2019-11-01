@@ -24,7 +24,6 @@ public class ClassCourseList extends ArrayList<Course> {
 	public ClassCourseList() {
 	}
 
-	//// initialize the list by reading from the file.
 	/**
 	 * Reads all courses from file
 	 * 

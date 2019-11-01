@@ -10,9 +10,9 @@ import java.util.*;
  * @author Ji Zhang, Wei Zhu
  * @version 1.0
  * @author mjfindler
- * @version 2.0
- * 
- * update to Java 8
+ * @version 2.0 update to Java 8
+ * @author rsingh92
+ * @version 3.0 refactoring
  */
 
 public class Solution {
@@ -23,6 +23,9 @@ public class Solution {
 	int theGrade;
 	boolean reported = false;
 
+	/**
+	 * Constructor solution
+	 */
 	public Solution() {
 	}
 

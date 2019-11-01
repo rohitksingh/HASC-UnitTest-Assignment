@@ -11,17 +11,21 @@ import java.util.*;
  * @version 2.0 use <e> notation
  * @author rsingh92
  * @version 3.0 refactoring
-
  */
 
 public class ListIterator implements Iterator<Object> {
 	public ArrayList<Object> theList;
 	int currentNumber = -1;
 
+	/**
+	 * Listiterator constructor
+	 */
 	public ListIterator() {
 	}
 
-	
+	/**
+	 * Listiterator constructor
+	 */
 	public ListIterator(ArrayList<Object> list) {
 		theList = list;
 	}

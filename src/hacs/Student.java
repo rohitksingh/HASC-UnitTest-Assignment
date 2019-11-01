@@ -7,14 +7,24 @@ package hacs;
  * 
  * @author Ji Zhang, Wei Zhu
  * @version 1.0
+ * @author rsingh92
+ * @version 2.0 refactoring      
  */
 
 public class Student extends Person {
 
+	/**
+	 * Constructor Student
+	 */
 	public Student() {
 		type = 0; // type=0: student
 	}
 
+	/**
+	 * Returns coursemenu based on courselevel
+	 * 
+	 * @return Coursemenu
+	 */
 	@Override
 	public CourseMenu createCourseMenu(Course theCourse, int theLevel) {
 
@@ -28,6 +38,9 @@ public class Student extends Person {
 		return theCourseMenu;
 	}
 
+	/**
+	 * Overrides Show menu
+	 */
 	@Override
 	public boolean showMenu() {
 		super.showMenu();
