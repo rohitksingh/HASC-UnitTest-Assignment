@@ -15,7 +15,7 @@ import hacs.LowLevelCourseMenu;
  * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
  * 
  * @author rsingh92
- * @version 3.0 Testing
+ * @version 1.0 Testing
  */
 
 @DisplayName("While running student")
