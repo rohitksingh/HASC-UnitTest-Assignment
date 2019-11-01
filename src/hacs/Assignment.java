@@ -96,15 +96,16 @@ public class Assignment {
 	 *  Submits the solution
 	 * 
 	 */
-	public void submitSolution() {
-		
+	public void submitSolution(Solution solution) {
+		System.out.println("Solution is submitted");
 	}
 
 	/**
 	 * Gets the solution list for the assignment
 	 * 
 	 */
-	public void getSolutionList() {
+	public SolutionList getSolutionList() {
+		return theSolutionList;
 	}
 
 	

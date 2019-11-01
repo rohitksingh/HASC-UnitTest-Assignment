@@ -29,6 +29,7 @@ public class ClassCourseList extends ArrayList<Course> {
 	 * 
 	 * @param theFileName
 	 */
+	
 	public void initializeFromFile(String theFileName) {
 
 		BufferedReader bufferedReeader;
@@ -54,7 +55,7 @@ public class ClassCourseList extends ArrayList<Course> {
 	 * @param courseName
 	 * @return
 	 */
-	Course findCourseByCourseName(String courseName) {
+	public Course findCourseByCourseName(String courseName) {
 		int nCourseCount = size();
 		for (int i = 0; i < nCourseCount; i++) {
 			Course theCourse;

@@ -12,7 +12,9 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import hacs.Assignment;
+import hacs.NodeVisitor;
 import hacs.Solution;
+import hacs.SolutionList;
 
 /**
  * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
@@ -150,20 +152,24 @@ class TestAssignment {
 		assertTrue(newSize == size+1);
 	}
 	
-	/**
-	 * Tests if the solution is submitted
-	 */
-	@Test
-	void testSubmitSolution(){
-		
-	}
-
+	
 	/**
 	 * Tests if the solutionlist is retrieved
 	 */
 	@Test
 	void testGetSolutionList(){
 		
+		SolutionList expected = new SolutionList();
+		expected.add(new Solution());
+		expected.add(new Solution());
+		
+		Assignment assignment = new Assignment();
+		
+		for(Solution solution: expected)
+			assignment.addSolution(solution);
+		
+		SolutionList actual = assignment.getSolutionList();
+		assertEquals(expected, actual);
 	}
 	
 	/**
@@ -204,6 +210,19 @@ class TestAssignment {
 	    assignment.setDueDate(date);
 	    String actual = assignment.getDueDateString();
 	    assertEquals(expected, actual);
+	}
+	
+	/**
+	 * Test accept method
+	 */
+	@Test
+	@DisplayName("test accept method  when Nodevisitor is null")
+	void testAccept() {
+		NodeVisitor nodeVisitor=null;
+		Assignment assignment = new Assignment();
+		assertThrows(NullPointerException.class, () -> {
+		    assignment.accept(nodeVisitor);
+		  }, "should throw a Null Pointer exception");
 	}
 
 }
