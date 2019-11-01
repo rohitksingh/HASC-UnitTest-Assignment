@@ -21,6 +21,9 @@ import hacs.LowLevelCourseMenu;
 @DisplayName("While running student")
 class TestStudent {
 
+	/**
+	 * Tests if a low-level-coursemenu is returned
+	 */
 	@Test
 	@DisplayName("test create high level course menu")
 	void testCreateLowLevelCourseMenu() {
@@ -31,6 +34,9 @@ class TestStudent {
 		
 	}
 	
+	/**
+	 * Tests if a high-level-coursemenu is returned
+	 */
 	@Test
 	@DisplayName("test create low level course menu")
 	void testCreateHighLevelCourseMenu() {
@@ -39,6 +45,9 @@ class TestStudent {
 		 assertTrue(result);
 	}
 	
+	/**
+	 * Tests if a low-level-coursemenu is returned
+	 */
 	@Test
 	@DisplayName("test create high level course menu wrongly")
 	void testCreateHighLevelCourseMenuWrong() {
@@ -49,6 +58,9 @@ class TestStudent {
 		
 	}
 	
+	/**
+	 * Tests if a low-level-coursemenu is returned
+	 */
 	@Test
 	@DisplayName("test create low level course menu wrongly")
 	void testCreateLowLevelCourseMenuWrong() {

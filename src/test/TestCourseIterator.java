@@ -25,6 +25,9 @@ class TestCourseIterator {
 	ClassCourseList courseList;
 	Course course;
 	
+	/**
+	 * Initiates resources before each test-method run
+	 */
 	@BeforeEach
 	public void init() {
 		
@@ -35,12 +38,18 @@ class TestCourseIterator {
 		
 	}
 	
+	/**
+	 * Tests if the iterator has more elements
+	 */
 	@Test
 	@DisplayName("test has next")
 	void testHasNext() {
 		assertTrue(courseIterator.hasNext());
 	}
 	
+	/**
+	 * Tests if next element is retrieved from iterator
+	 */
 	@Test
 	@DisplayName("test next")
 	void testNext() {
@@ -48,6 +57,9 @@ class TestCourseIterator {
 		assertEquals(course, actual);
 	}
 	
+	/**
+	 * Tests if null is returned when list is empty
+	 */
 	@Test
 	@DisplayName("test next when iterator is empty")
 	void testNextWhenNull() {
@@ -55,6 +67,9 @@ class TestCourseIterator {
 		assertEquals(null, actual);
 	}
 	
+	/**
+	 * Tests if element is removed from iterator
+	 */
 	@Test
 	@DisplayName("test remove")
 	void testRemove() {
@@ -75,6 +90,9 @@ class TestCourseIterator {
 		assertTrue(newSize == size-1);
 	}
 	
+	/**
+	 * Tests if next suitable course is retrieved from courseIterator using coursename
+	 */
 	@Test
 	@DisplayName("test next suitable course when it exists")
 	void testGetNextSuiatble(){
@@ -83,6 +101,9 @@ class TestCourseIterator {
 			
 	}
 	
+	/**
+	 * Tests if null is returned when no course is found from iterator
+	 */
 	@Test
 	@DisplayName("test next suitable course when it does not exists")
 	void testGetNextSuiatbleNotFound(){

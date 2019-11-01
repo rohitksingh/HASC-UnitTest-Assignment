@@ -22,11 +22,17 @@ class TestCourse {
 	
 	Course course;
 	
+	/**
+	 * Initiates a course before each test case
+	 */
 	@BeforeEach
 	public void init() {
 		course = new Course("SER515",1);
 	}
 	
+	/**
+	 * Tests if assignment is added
+	 */
 	@Test
 	@DisplayName("test add assignment")
 	public void testAddAssignment() {
@@ -39,6 +45,9 @@ class TestCourse {
 		
 	}
 	
+	/**
+	 * tests String representation of course
+	 */
 	@Test
 	@DisplayName("test toString")
 	void testToString(){

@@ -27,6 +27,9 @@ class TestSolutionIterator {
 	SolutionList solutionList;
 	Solution solution;
 	
+	/**
+	 * Initiates resources before each test methods
+	 */
 	@BeforeEach
 	void init() {
 		
@@ -36,18 +39,27 @@ class TestSolutionIterator {
 		solutionIterator = new SolutionIterator(solutionList);
 	}
 	
+	/**
+	 * Tests if iterator has next element
+	 */
 	@Test
 	@DisplayName("test next")
 	void testNext() {
 		assertTrue(solutionIterator.hasNext());
 	}
 	
+	/**
+	 * Tests if iterator returns null when list is empty
+	 */
 	@Test
 	@DisplayName("test next when list is empty")
 	void testNextWhenEmpty() {
 		assertFalse(new SolutionIterator(new SolutionList()).hasNext());
 	}
 	
+	/**
+	 * Tests if Iterator returns null when listiterator reaches at the last element
+	 */
 	@Test
 	@DisplayName("test next when there is no element left")
 	void testNextWhenPoppedAll() {
@@ -55,6 +67,9 @@ class TestSolutionIterator {
 		assertFalse(solutionIterator.hasNext());
 	}
 	
+	/**
+	 * Tests id elenet is removed from iterator
+	 */
 	@Test
 	@DisplayName("test remove")
 	void testRemove() {
@@ -75,7 +90,9 @@ class TestSolutionIterator {
 		assertTrue(newSize == size-1);
 	}
 	
-	
+	/**
+	 * Tests if next suitable element is retrieved from iterator using key
+	 */
 	@Test
 	@DisplayName("test next suitable course when it exists")
 	void testGetNextSuiatble(){
@@ -84,6 +101,9 @@ class TestSolutionIterator {
 			
 	}
 	
+	/**
+	 * Tests if null is returned when there is no solution thats maps to given key
+	 */
 	@Test
 	@DisplayName("test next suitable course when it does not exists")
 	void testGetNextSuiatbleNotFound(){

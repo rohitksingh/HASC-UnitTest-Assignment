@@ -20,11 +20,17 @@ public class TestSolution {
 
 	Solution solution;
 	
+	/**
+	 * Initiates Solution before each test method
+	 */
 	@BeforeEach
 	void init() {
 		solution = new Solution();
 	}
 	
+	/**
+	 * Tests solution string representation when solution is graded
+	 */
 	@Test
 	@DisplayName("test toString when solution is graded")
 	void testToStringWhenGraded() {
@@ -36,6 +42,9 @@ public class TestSolution {
 			
 	}
 	
+	/**
+	 * Tests solution string representation when solution is not graded
+	 */
 	@Test
 	@DisplayName("test toString when solution is not graded")
 	void testToStringWhenNotGraded() {
@@ -46,6 +55,9 @@ public class TestSolution {
 		assertEquals(expected, actual);	
 	}
 	
+	/**
+	 * Tests get grade when solution is graded
+	 */
 	@Test
 	@DisplayName("test get grade when graded")
 	void testGetGrade(){
@@ -55,6 +67,9 @@ public class TestSolution {
 	    assertEquals(expected, actual);
 	}
 	
+	/**
+	 * Tests get grade when solution is not graded
+	 */
 	@Test
 	@DisplayName("test get gradeString when not graded")
 	void testGetGradeStringWhenNotGraded(){
@@ -65,6 +80,9 @@ public class TestSolution {
 	    assertEquals(expected, actual);
 	}
 	
+	/**
+	 * tests gradeString representation when solution is graded
+	 */
 	@Test
 	@DisplayName("test get gradeString when graded")
 	void testGetGradeStringWhenGraded(){
@@ -75,6 +93,9 @@ public class TestSolution {
 	    assertEquals(expected, actual);
 	}
 	
+	/**
+	 * Tests gradeString representation when solution is not graded
+	 */
 	@Test
 	@DisplayName("test get gradeString when not graded but grade point is given by mistake")
 	void testGetGradeStringWhenNotGradedButSetGrade(){
@@ -85,6 +106,9 @@ public class TestSolution {
 	    assertEquals(expected, actual);
 	}
 	
+	/**
+	 * Tests if a solution is reported
+	 */
 	@Test
 	@DisplayName("test isReported")
 	void testIsReported() {

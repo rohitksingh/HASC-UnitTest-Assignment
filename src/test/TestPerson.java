@@ -23,12 +23,18 @@ class TestPerson {
 	Person person;
 	Course course;
 	
+	/**
+	 * Initiates resources before each test method run
+	 */
 	@BeforeEach
 	void init() {
 		person = new Student();
 		course = new Course("Junit", 0);
 	}
 	
+	/**
+	 * Tests if course is added to courselist
+	 */
 	@Test
 	@DisplayName("test add course")
 	void testAddCourse() {
@@ -39,6 +45,9 @@ class TestPerson {
 		assertTrue(prevSize==newSize-1);
 	}
 	
+	/**
+	 * Tests if course list is retrieved
+	 */
 	@Test
 	@DisplayName("test getCourseList")
 	void testGetCourseList() {

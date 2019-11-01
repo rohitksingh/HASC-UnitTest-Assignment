@@ -20,21 +20,29 @@ import hacs.Solution;
  * @author rsingh92
  * @version 1.0 Testing
  */
-
 @DisplayName("When running AssignmentTest")
 class TestAssignment {
-		
+	
+	/**
+	 * Nested class for testing Assignment set due-date
+	 */
 	@Nested
 	@DisplayName("test set due-date")
 	class SetDueDate{
 		
 		Assignment assignment;
 		
+		/**
+		 * initiates resource to run before each test method
+		 */
 		@BeforeEach
 		public void init() {
 			assignment = new Assignment();
 		}
 		
+		/**
+		 * Test method for seeting up correct date format
+		 */
 		@Test
 		@DisplayName("when setting a correct date")
 		public void testSetSetDueDate() {
@@ -46,6 +54,9 @@ class TestAssignment {
 		    assertTrue(out1.equals(out2));
 		}
 		
+		/**
+		 * Test for setting up null value as a due-date
+		 */
 		@Test
 		@DisplayName("when setting a null value")
 		public void testSetDueDateNull() {
@@ -57,19 +68,28 @@ class TestAssignment {
 		
 	}
 	
+	/**
+	 * Nested class for testing if assignment is overdue
+	 */
 	@Nested
 	@DisplayName("test is assignment overdue")
-	class SetOverdue{
+	class IsOverdue{
 		
 		Assignment assignment;
 		Date currentDate = new Date();
 		
+		/**
+		 * Initiates resource for each test method
+		 */
 		@BeforeEach
 		void init() {
 		    assignment = new Assignment();
 		    currentDate = new Date();
 		}
 		
+		/**
+		 * Tests isoverdue when current date is before duedate
+		 */
 		@Test
 		@DisplayName("when current date is before duedate")
 		public void testIsOverDuePastDate(){
@@ -80,6 +100,9 @@ class TestAssignment {
 			
 	    }
 		
+		/**
+		 * Tests isoverdue when current date is after duedate
+		 */
 		@Test
 		@DisplayName("when current date is after duedate")
 		public void testIsOverDuePastFuture(){
@@ -91,12 +114,18 @@ class TestAssignment {
 		
 	}
 	
+	/**
+	 * Tests add solution instance type
+	 */
 	@Test
     void testAddSolution(){
 		Solution mysolution = new Solution();
 		assertTrue(mysolution instanceof Solution);
 	}
 	
+	/**
+	 * Tests if current solution is added to solutionlist
+	 */
 	@Test
 	@DisplayName("test add solution to list")
 	void testAddSolutionToList(){
@@ -121,17 +150,25 @@ class TestAssignment {
 		assertTrue(newSize == size+1);
 	}
 	
+	/**
+	 * Tests if the solution is submitted
+	 */
 	@Test
 	void testSubmitSolution(){
 		
 	}
 
+	/**
+	 * Tests if the solutionlist is retrieved
+	 */
 	@Test
 	void testGetSolutionList(){
 		
 	}
 	
-	
+	/**
+	 * Tests getSolution
+	 */
 	@Test
 	@DisplayName("test get solution")
 	void testGetSolution(){
@@ -143,6 +180,9 @@ class TestAssignment {
 		
 	}
 	
+	/**
+	 * Tests the string representation of assignment object
+	 */
 	@Test
 	@DisplayName("test toString")
 	void testToString(){
@@ -150,6 +190,9 @@ class TestAssignment {
 		assertEquals(null, assignment.toString());	
 	}
 
+	/**
+	 * Tests due-date string format representation
+	 */
 	@Test
 	@DisplayName("test get duedate string")
     void getDueDateString(){
