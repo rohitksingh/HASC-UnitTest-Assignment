@@ -17,5 +17,17 @@ public class UserInfoItem {
 	public enum USER_TYPE { Student, Instructor }
 	
 	String strUserName;
+	public String getStrUserName() {
+		return strUserName;
+	}
+	public void setStrUserName(String strUserName) {
+		this.strUserName = strUserName;
+	}
+	public USER_TYPE getUserType() {
+		return userType;
+	}
+	public void setUserType(USER_TYPE userType) {
+		this.userType = userType;
+	}
 	USER_TYPE userType; // 0 : Student, 1: Instructor
 }

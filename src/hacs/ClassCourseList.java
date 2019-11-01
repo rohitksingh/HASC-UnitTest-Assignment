@@ -53,7 +53,7 @@ public class ClassCourseList extends ArrayList<Course> {
 	 * Finds course by name
 	 * 
 	 * @param courseName
-	 * @return
+	 * @return Course
 	 */
 	public Course findCourseByCourseName(String courseName) {
 		int nCourseCount = size();

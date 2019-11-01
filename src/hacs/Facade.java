@@ -127,7 +127,7 @@ public class Facade {
 	 * 
 	 * @param userinfoitem
 	 */
-	void createUser(UserInfoItem userinfoitem) {
+	public void createUser(UserInfoItem userinfoitem) {
 		if (userinfoitem.userType == UserInfoItem.USER_TYPE.Student) /// student
 		{
 			thePerson = new Student();
@@ -141,18 +141,18 @@ public class Facade {
 	/**
 	 * create a course list and intitialize it with the file CourseInfo.txt
 	 */
-	void createCourseList() {
+	public void createCourseList() {
 		theCourseList = new ClassCourseList();
-		theCourseList.initializeFromFile("CourseInfo.txt");
+		theCourseList.initializeFromFile("src/CourseInfo.txt");
 	}
 
 	/**
 	 * Adds course to user's course list
 	 */
-	void attachCourseToUser() {
+	public void attachCourseToUser() {
 		BufferedReader file;
 		try {
-			file = new BufferedReader(new FileReader("UserCourse.txt"));
+			file = new BufferedReader(new FileReader("src/UserCourse.txt"));
 			String aline, strUserName, strCourseName;
 			while ((aline = file.readLine()) != null) // not the EOF
 			{
@@ -225,6 +225,10 @@ public class Facade {
 	private Course findCourseByCourseName(String courseName) {
 		CourseIterator Iterator = new CourseIterator(theCourseList);
 		return (Course) Iterator.next(courseName);
+	}
+	
+	public Person getPerson() {
+		return thePerson;
 	}
 
 }

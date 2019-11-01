@@ -1,12 +1,56 @@
 package test;
 
-/**
- * Title: HACS Description: Copyright: Copyright (c) 2002 Company: msu
- * 
- * @author rsingh92
- * @version 1.0 Testing
- */
+import static org.junit.jupiter.api.Assertions.*;
 
-public class TestFacade {
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import hacs.Course;
+import hacs.Facade;
+import hacs.Person;
+import hacs.Student;
+import hacs.UserInfoItem;
+
+class TestFacade {
+
+	Facade facade;
+	UserInfoItem userInfo;
+	
+	@BeforeEach
+	public void init() {
+		facade = new Facade();
+        userInfo = new UserInfoItem();
+	}
+	
+	
+	@Test
+	@DisplayName("test attach course to user")
+    void attachCourseToUserTest() {
+    	
+        String username = "Inst1";
+        userInfo.setStrUserName(username);
+        userInfo.setUserType(UserInfoItem.USER_TYPE.Student);
+        facade.createUser(userInfo);
+        facade.createCourseList();
+        facade.attachCourseToUser();
+        Person person = facade.getPerson();
+        person.addCourse(new Course("CSE880",0));
+        String course = "CSE880";
+        String courseName = person.getCourseList().findCourseByCourseName(course).toString();
+        assertEquals(course, courseName);    
+    }
+	
+	@Test
+	@DisplayName("test create user")
+    void testCreateUser() {
+		Facade facade = new Facade();
+        UserInfoItem userInfo = new UserInfoItem();
+        String name = "Student1";
+        userInfo.setStrUserName(name);
+        facade.createUser(userInfo);
+        assertEquals(name, userInfo.getStrUserName());  
+        
+	}
 
 }
