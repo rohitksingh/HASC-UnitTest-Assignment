@@ -97,8 +97,7 @@ class TestSolutionIterator {
 	@DisplayName("test next suitable course when it exists")
 	void testGetNextSuiatble(){
 		Solution actual = (Solution) solutionIterator.next("");
-		assertEquals(solution, actual);
-			
+		assertEquals(solution, actual);		
 	}
 	
 	/**

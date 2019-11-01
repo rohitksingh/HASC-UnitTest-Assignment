@@ -36,9 +36,7 @@ public class TestReminderVisitor {
 		course.addAssignment(new Assignment());
 		course.addAssignment(new Assignment());
 		course.addAssignment(new Assignment());
-		reminderVisitor.visitCourse(course);
-		
-		
+		reminderVisitor.visitCourse(course);	
 	}
 	
 	

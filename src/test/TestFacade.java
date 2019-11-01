@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import hacs.Course;
 import hacs.Facade;
 import hacs.Person;
-import hacs.Student;
 import hacs.UserInfoItem;
 
 class TestFacade {

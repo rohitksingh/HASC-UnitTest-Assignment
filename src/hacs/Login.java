@@ -141,7 +141,7 @@ public class Login extends JDialog {
 		int Sep = aline.lastIndexOf(':');
 		return aline.substring(0, Sep);
 	}
-
+	
 	/**
 	 * Gets the password from aline UserName:Password
 	 * 
