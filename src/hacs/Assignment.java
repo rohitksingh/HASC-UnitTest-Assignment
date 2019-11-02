@@ -82,7 +82,7 @@ public class Assignment {
 		Solution mySolution = new Solution();
 		return mySolution;
 	}
-	
+
 	/**
 	 * Adds the theSolution to the Solutionlist
 	 * 
@@ -93,7 +93,7 @@ public class Assignment {
 	}
 
 	/**
-	 *  Submits the solution
+	 * Submits the solution
 	 * 
 	 */
 	public void submitSolution(Solution solution) {
@@ -108,7 +108,6 @@ public class Assignment {
 		return theSolutionList;
 	}
 
-	
 	/**
 	 * Returns the solution of the given name
 	 * 
@@ -116,7 +115,7 @@ public class Assignment {
 	 * @return Solution
 	 */
 	public Solution getSolution(String studentname) {
-		Iterator<Solution> Iterator =  theSolutionList.iterator();
+		Iterator<Solution> Iterator = theSolutionList.iterator();
 		return (Solution) Iterator.next();
 	}
 
@@ -166,5 +165,5 @@ public class Assignment {
 	public void accept(NodeVisitor visitor) {
 		visitor.visitAssignment(this);
 	}
-	
+
 }

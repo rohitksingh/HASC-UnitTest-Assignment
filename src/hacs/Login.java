@@ -32,7 +32,7 @@ public class Login extends JDialog {
 	JRadioButton studentRadio = new JRadioButton();
 	JRadioButton instructorRadio = new JRadioButton();
 	ButtonGroup buttonGroup1 = new ButtonGroup();
-	
+
 	private String userBox = null;
 	private USER_TYPE userType = USER_TYPE.Student; // default to Student
 
@@ -141,7 +141,7 @@ public class Login extends JDialog {
 		int Sep = aline.lastIndexOf(':');
 		return aline.substring(0, Sep);
 	}
-	
+
 	/**
 	 * Gets the password from aline UserName:Password
 	 * 
@@ -162,7 +162,6 @@ public class Login extends JDialog {
 		return userBox;
 	}
 
-	
 	/**
 	 * Gets the userType of the login
 	 * 

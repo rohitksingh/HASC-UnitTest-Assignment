@@ -84,16 +84,13 @@ public class ReminderVisitor extends NodeVisitor {
 			m_Reminder.listOverdue.add(assignment.assignmentName + " Due Date is " + assignment.getDueDateString());
 		}
 	}
-	
-	
-	
+
 	public static void main(String[] args) {
 		ReminderVisitor reminderVisitor = new ReminderVisitor();
 		Assignment assignment = new Assignment();
 		assignment.setDueDate(new Date());
 		reminderVisitor.visitAssignment(assignment);
-		
+
 	}
-	
-	
+
 }

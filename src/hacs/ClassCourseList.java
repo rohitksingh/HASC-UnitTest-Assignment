@@ -15,11 +15,11 @@ import java.io.*;
  */
 
 public class ClassCourseList extends ArrayList<Course> {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 *  ClassCourseList constructor
+	 * ClassCourseList constructor
 	 */
 	public ClassCourseList() {
 	}
@@ -29,7 +29,7 @@ public class ClassCourseList extends ArrayList<Course> {
 	 * 
 	 * @param theFileName
 	 */
-	
+
 	public void initializeFromFile(String theFileName) {
 
 		BufferedReader bufferedReeader;
@@ -45,7 +45,7 @@ public class ClassCourseList extends ArrayList<Course> {
 				add(theCourse);
 			}
 		} catch (Exception ee) {
-			
+
 		}
 	}
 

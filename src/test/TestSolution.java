@@ -19,7 +19,7 @@ import hacs.Solution;
 public class TestSolution {
 
 	Solution solution;
-	
+
 	/**
 	 * Initiates Solution before each test method
 	 */
@@ -27,85 +27,85 @@ public class TestSolution {
 	void init() {
 		solution = new Solution();
 	}
-	
+
 	/**
 	 * Tests solution string representation when solution is graded
 	 */
 	@Test
 	@DisplayName("test toString when solution is graded")
 	void testToStringWhenGraded() {
-		
+
 		solution.setReported(true);
 		String actual = solution.toString();
-		String expected = "" + "  " + "" + " Grade=" + solution.getGradeInt() + "  "+"reported";	
+		String expected = "" + "  " + "" + " Grade=" + solution.getGradeInt() + "  " + "reported";
 		assertEquals(expected, actual);
-			
+
 	}
-	
+
 	/**
 	 * Tests solution string representation when solution is not graded
 	 */
 	@Test
 	@DisplayName("test toString when solution is not graded")
 	void testToStringWhenNotGraded() {
-		
+
 		solution.setReported(false);
 		String actual = solution.toString();
-		String expected = "" + "  " + "" + " Grade=" + solution.getGradeInt() + "  "+"not reported";	
-		assertEquals(expected, actual);	
+		String expected = "" + "  " + "" + " Grade=" + solution.getGradeInt() + "  " + "not reported";
+		assertEquals(expected, actual);
 	}
-	
+
 	/**
 	 * Tests get grade when solution is graded
 	 */
 	@Test
 	@DisplayName("test get grade when graded")
-	void testGetGrade(){
+	void testGetGrade() {
 		solution.setGrade(10);
-	    int actual = solution.getGradeInt();
-	    int expected = 10;
-	    assertEquals(expected, actual);
+		int actual = solution.getGradeInt();
+		int expected = 10;
+		assertEquals(expected, actual);
 	}
-	
+
 	/**
 	 * Tests get grade when solution is not graded
 	 */
 	@Test
 	@DisplayName("test get gradeString when not graded")
-	void testGetGradeStringWhenNotGraded(){
+	void testGetGradeStringWhenNotGraded() {
 		solution.setReported(false);
 		solution.setGrade(10);
-	    String actual = solution.getGradeString();
-	    String expected = "-1";
-	    assertEquals(expected, actual);
+		String actual = solution.getGradeString();
+		String expected = "-1";
+		assertEquals(expected, actual);
 	}
-	
+
 	/**
 	 * tests gradeString representation when solution is graded
 	 */
 	@Test
 	@DisplayName("test get gradeString when graded")
-	void testGetGradeStringWhenGraded(){
+	void testGetGradeStringWhenGraded() {
 		solution.setReported(true);
 		solution.setGrade(10);
-	    String actual = solution.getGradeString();
-	    String expected = "10";
-	    assertEquals(expected, actual);
+		String actual = solution.getGradeString();
+		String expected = "10";
+		assertEquals(expected, actual);
 	}
-	
+
 	/**
 	 * Tests gradeString representation when solution is not graded
 	 */
 	@Test
 	@DisplayName("test get gradeString when not graded but grade point is given by mistake")
-	void testGetGradeStringWhenNotGradedButSetGrade(){
+	void testGetGradeStringWhenNotGradedButSetGrade() {
 		solution.setReported(false);
 		solution.setGrade(10);
-	    String actual = solution.getGradeString();
-	    String expected = "-1";
-	    assertEquals(expected, actual);
+		String actual = solution.getGradeString();
+		String expected = "-1";
+		assertEquals(expected, actual);
 	}
-	
+
 	/**
 	 * Tests if a solution is reported
 	 */
@@ -117,5 +117,5 @@ public class TestSolution {
 		boolean expected = true;
 		assertEquals(expected, actual);
 	}
-	
+
 }

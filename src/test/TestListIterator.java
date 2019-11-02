@@ -21,9 +21,9 @@ import hacs.ListIterator;
 class TestListIterator {
 
 	ListIterator listIterator;
-	ArrayList<Object> myList; 
+	ArrayList<Object> myList;
 	Object test;
-	
+
 	/**
 	 * Initiates resources befre each test method
 	 */
@@ -34,7 +34,7 @@ class TestListIterator {
 		myList.add(test);
 		listIterator = new ListIterator(myList);
 	}
-	
+
 	/**
 	 * Tests if iterator has more element
 	 */
@@ -43,7 +43,7 @@ class TestListIterator {
 	void testHasNext() {
 		assertTrue(listIterator.hasNext());
 	}
-	
+
 	/**
 	 * Tests if iterator returns null when list is empty
 	 */
@@ -52,7 +52,7 @@ class TestListIterator {
 	void testHasNextWhenNull() {
 		assertFalse(new ListIterator(new ArrayList<>()).hasNext());
 	}
-	
+
 	/**
 	 * Tests if next element is retrieved from listiterator
 	 */
@@ -62,7 +62,7 @@ class TestListIterator {
 		Object actual = listIterator.next();
 		assertEquals(test, actual);
 	}
-	
+
 	/**
 	 * Tests if next element is null when list is empty
 	 */
@@ -72,7 +72,7 @@ class TestListIterator {
 		Object actual = new ListIterator(new ArrayList<>()).next();
 		assertEquals(null, actual);
 	}
-	
+
 	/**
 	 * Tests if element is removed from iterator
 	 */
@@ -80,20 +80,18 @@ class TestListIterator {
 	@DisplayName("test remove")
 	void testRemove() {
 		int size = 0;
-		while(listIterator.hasNext())
-		{
+		while (listIterator.hasNext()) {
 			size++;
 			listIterator.next();
 		}
 		listIterator.remove();
 		int newSize = 0;
-		while(listIterator.hasNext())
-		{
+		while (listIterator.hasNext()) {
 			newSize++;
 			listIterator.next();
 		}
-		
-		assertTrue(newSize == size-1);
+
+		assertTrue(newSize == size - 1);
 	}
 
 }

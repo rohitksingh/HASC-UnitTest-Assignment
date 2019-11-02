@@ -42,7 +42,6 @@ public class Facade {
 		return login.isExit();
 	}
 
-	
 	/**
 	 * Adds assignment to course
 	 * 
@@ -60,7 +59,7 @@ public class Facade {
 		theAssignmentMenu.showMenu(theAssignment, thePerson);
 		theCourse.addAssignment(theAssignment);
 	}
-	
+
 	/**
 	 * Shows assignment
 	 * 
@@ -103,7 +102,7 @@ public class Facade {
 			theSolution = (Solution) theSolutionIterator.next();
 		}
 	}
-	
+
 	/**
 	 * Submits solution
 	 * 
@@ -123,7 +122,7 @@ public class Facade {
 	}
 
 	/**
-	 * Creates user from  UserInfo
+	 * Creates user from UserInfo
 	 * 
 	 * @param userinfoitem
 	 */
@@ -137,7 +136,7 @@ public class Facade {
 		}
 		thePerson.userName = userinfoitem.strUserName;
 	}
-	
+
 	/**
 	 * create a course list and intitialize it with the file CourseInfo.txt
 	 */
@@ -145,7 +144,6 @@ public class Facade {
 		theCourseList = new ClassCourseList();
 		theCourseList.initializeFromFile("src/CourseInfo.txt");
 	}
-	
 
 	/**
 	 * Adds course to user's course list
@@ -186,6 +184,7 @@ public class Facade {
 
 	/**
 	 * Gets the CourseName from aline UserName:CourseName
+	 * 
 	 * @param aline
 	 * @return String
 	 */
@@ -195,7 +194,7 @@ public class Facade {
 	}
 
 	/**
-	 * Selects course 
+	 * Selects course
 	 * 
 	 * @return String
 	 */
@@ -227,7 +226,7 @@ public class Facade {
 		CourseIterator Iterator = new CourseIterator(theCourseList);
 		return (Course) Iterator.next(courseName);
 	}
-	
+
 	public Person getPerson() {
 		return thePerson;
 	}

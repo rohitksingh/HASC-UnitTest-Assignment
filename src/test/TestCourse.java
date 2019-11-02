@@ -19,39 +19,39 @@ import hacs.Course;
 
 @DisplayName("When running Test course")
 class TestCourse {
-	
+
 	Course course;
-	
+
 	/**
 	 * Initiates a course before each test case
 	 */
 	@BeforeEach
 	public void init() {
-		course = new Course("SER515",1);
+		course = new Course("SER515", 1);
 	}
-	
+
 	/**
 	 * Tests if assignment is added
 	 */
 	@Test
 	@DisplayName("test add assignment")
 	public void testAddAssignment() {
-		
-		Assignment assignment = new Assignment();	
+
+		Assignment assignment = new Assignment();
 		int prevSize = course.assignmentList.size();
 		course.addAssignment(assignment);
 		int newSize = course.assignmentList.size();
-		assertTrue((newSize == prevSize+1));
-		
+		assertTrue((newSize == prevSize + 1));
+
 	}
-	
+
 	/**
 	 * tests String representation of course
 	 */
 	@Test
 	@DisplayName("test toString")
-	void testToString(){
-		assertEquals("SER515", course.toString());		
+	void testToString() {
+		assertEquals("SER515", course.toString());
 	}
-	
+
 }

@@ -26,19 +26,19 @@ class TestSolutionIterator {
 	SolutionIterator solutionIterator;
 	SolutionList solutionList;
 	Solution solution;
-	
+
 	/**
 	 * Initiates resources before each test methods
 	 */
 	@BeforeEach
 	void init() {
-		
+
 		solutionList = new SolutionList();
 		solution = new Solution();
 		solutionList.add(solution);
 		solutionIterator = new SolutionIterator(solutionList);
 	}
-	
+
 	/**
 	 * Tests if iterator has next element
 	 */
@@ -47,7 +47,7 @@ class TestSolutionIterator {
 	void testNext() {
 		assertTrue(solutionIterator.hasNext());
 	}
-	
+
 	/**
 	 * Tests if iterator returns null when list is empty
 	 */
@@ -56,7 +56,7 @@ class TestSolutionIterator {
 	void testNextWhenEmpty() {
 		assertFalse(new SolutionIterator(new SolutionList()).hasNext());
 	}
-	
+
 	/**
 	 * Tests if Iterator returns null when listiterator reaches at the last element
 	 */
@@ -66,7 +66,7 @@ class TestSolutionIterator {
 		solutionIterator.next();
 		assertFalse(solutionIterator.hasNext());
 	}
-	
+
 	/**
 	 * Tests id elenet is removed from iterator
 	 */
@@ -74,41 +74,38 @@ class TestSolutionIterator {
 	@DisplayName("test remove")
 	void testRemove() {
 		int size = 0;
-		while(solutionIterator.hasNext())
-		{
+		while (solutionIterator.hasNext()) {
 			size++;
 			solutionIterator.next();
 		}
 		solutionIterator.remove();
 		int newSize = 0;
-		while(solutionIterator.hasNext())
-		{
+		while (solutionIterator.hasNext()) {
 			newSize++;
 			solutionIterator.next();
 		}
-		
-		assertTrue(newSize == size-1);
+
+		assertTrue(newSize == size - 1);
 	}
-	
+
 	/**
 	 * Tests if next suitable element is retrieved from iterator using key
 	 */
 	@Test
 	@DisplayName("test next suitable course when it exists")
-	void testGetNextSuiatble(){
+	void testGetNextSuiatble() {
 		Solution actual = (Solution) solutionIterator.next("");
-		assertEquals(solution, actual);		
+		assertEquals(solution, actual);
 	}
-	
+
 	/**
 	 * Tests if null is returned when there is no solution thats maps to given key
 	 */
 	@Test
 	@DisplayName("test next suitable course when it does not exists")
-	void testGetNextSuiatbleNotFound(){
+	void testGetNextSuiatbleNotFound() {
 		Solution actual = (Solution) solutionIterator.next("ser531");
 		assertNull(actual);
 	}
-
 
 }

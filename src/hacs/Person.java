@@ -14,7 +14,7 @@ import java.util.*;
  */
 
 abstract public class Person {
-	
+
 	int type = 0; // type=0 : student, type=1 instructor
 	String userName;
 	ClassCourseList courseList;
@@ -88,7 +88,7 @@ abstract public class Person {
 	 * @return boolean
 	 */
 	public boolean showMenu() {
-		
+
 		Iterator<Assignment> assignmentIterator = currentCourse.assignmentList.iterator();
 		theCourseMenu.theCourse = currentCourse;
 		Assignment theAssignment;

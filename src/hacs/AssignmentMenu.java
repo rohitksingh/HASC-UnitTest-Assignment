@@ -19,7 +19,7 @@ abstract public class AssignmentMenu extends JDialog {
 		setModal(true);
 		setSize(575, 330);
 	}
-	
+
 	/**
 	 * Shows assignment menu
 	 * 
@@ -29,7 +29,7 @@ abstract public class AssignmentMenu extends JDialog {
 	abstract void showMenu(Assignment assignment, Person person);
 
 	/**
-	 * AssignmentMenu Constructor 
+	 * AssignmentMenu Constructor
 	 */
-	
+
 }

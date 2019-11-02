@@ -20,25 +20,22 @@ import hacs.ReminderVisitor;
 public class TestReminderVisitor {
 
 	ReminderVisitor reminderVisitor;
-	
+
 	@BeforeEach
 	void init() {
 		reminderVisitor = new ReminderVisitor();
 	}
-	
-	
+
 	@Test
 	@Disabled
 	@DisplayName("test visit facade")
 	void testVisitCourse() {
-	    
+
 		Course course = new Course("SER515", 1);
 		course.addAssignment(new Assignment());
 		course.addAssignment(new Assignment());
 		course.addAssignment(new Assignment());
-		reminderVisitor.visitCourse(course);	
+		reminderVisitor.visitCourse(course);
 	}
-	
-	
-	
+
 }

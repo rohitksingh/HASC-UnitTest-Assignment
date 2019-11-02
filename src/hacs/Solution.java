@@ -16,7 +16,7 @@ import java.util.*;
  */
 
 public class Solution {
-	
+
 	String theAuthor = "";
 	String SolutionFileName = "";
 	Date theSubmitData = new Date();
@@ -30,7 +30,7 @@ public class Solution {
 	}
 
 	/**
-	 * Overrides toString 
+	 * Overrides toString
 	 * 
 	 * @return String
 	 */
@@ -47,7 +47,7 @@ public class Solution {
 	}
 
 	/**
-	 * Returns grade string 
+	 * Returns grade string
 	 * 
 	 * @return String
 	 */
@@ -61,7 +61,7 @@ public class Solution {
 	/**
 	 * Returns grade
 	 * 
-	 * @return int 
+	 * @return int
 	 */
 	public int getGradeInt() {
 		return theGrade;
@@ -84,7 +84,7 @@ public class Solution {
 	public boolean isReported() {
 		return reported;
 	}
-	
+
 	/**
 	 * Sets grade for the solution
 	 * 

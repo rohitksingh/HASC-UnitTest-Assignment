@@ -126,6 +126,7 @@ public class CourseSelectDialog extends JDialog {
 
 	/**
 	 * Performs logout
+	 * 
 	 * @param e
 	 */
 	void buttonLogout_actionPerformed(ActionEvent e) {

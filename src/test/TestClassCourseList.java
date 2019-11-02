@@ -25,48 +25,48 @@ class TestClassCourseList {
 	@Test
 	@DisplayName("test find course name")
 	void testFindCourseByCourseName() {
-		
+
 		ClassCourseList classCourseList = new ClassCourseList();
 		classCourseList.initializeFromFile("src/CourseInfo.txt");
 		String expected = "CSE870";
 		Course c = classCourseList.findCourseByCourseName(expected);
 		String actual = c.toString();
 		assertEquals(expected, actual);
-	
+
 	}
-	
+
 	/**
 	 * Tests if course exist with a given name when wrong file is chosen
 	 */
 	@Test
 	@DisplayName("test find course name when uri is wrong")
 	void testFindCourseByCourseNameWrongPath() {
-		
+
 		ClassCourseList classCourseList = new ClassCourseList();
 		classCourseList.initializeFromFile("src/kjkasjkaj.txt");
 		String expected = "CSE870";
 		Course c = classCourseList.findCourseByCourseName(expected);
 		assertThrows(NullPointerException.class, () -> {
-		    c.toString();
-		  }, "should throw a Null Pointer exception");
+			c.toString();
+		}, "should throw a Null Pointer exception");
 	}
-	
+
 	/**
 	 * Tests if course exist with a given name when wrong file is chosen
 	 */
 	@Test
 	@DisplayName("test find course name when course does not exists")
 	void testFindCourseByCourseNameNotFound() {
-		
+
 		ClassCourseList classCourseList = new ClassCourseList();
 		classCourseList.initializeFromFile("src/kjkasjkaj.txt");
 		String expected = "SER531";
 		Course c = classCourseList.findCourseByCourseName(expected);
 		assertThrows(NullPointerException.class, () -> {
-		    c.toString();
-		  }, "should throw a Null Pointer exception");
+			c.toString();
+		}, "should throw a Null Pointer exception");
 	}
-	
+
 	/**
 	 * Test if courses are read from file
 	 */
@@ -80,7 +80,7 @@ class TestClassCourseList {
 		assertEquals("CSE880", classCourseList.get(1).toString());
 		assertEquals("CSE890", classCourseList.get(2).toString());
 	}
-	
+
 	/**
 	 * Test if courses are read from file
 	 */
@@ -90,8 +90,7 @@ class TestClassCourseList {
 		ClassCourseList classCourseList = new ClassCourseList();
 		classCourseList.initializeFromFile("src/CourseInfoasa.txt");
 		assertEquals(0, classCourseList.size());
-		
+
 	}
-	
 
 }

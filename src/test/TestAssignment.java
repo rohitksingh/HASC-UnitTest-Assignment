@@ -24,16 +24,16 @@ import hacs.SolutionList;
  */
 @DisplayName("When running AssignmentTest")
 class TestAssignment {
-	
+
 	/**
 	 * Nested class for testing Assignment set due-date
 	 */
 	@Nested
 	@DisplayName("test set due-date")
-	class SetDueDate{
-		
+	class SetDueDate {
+
 		Assignment assignment;
-		
+
 		/**
 		 * initiates resource to run before each test method
 		 */
@@ -41,7 +41,7 @@ class TestAssignment {
 		public void init() {
 			assignment = new Assignment();
 		}
-		
+
 		/**
 		 * Test method for seeting up correct date format
 		 */
@@ -50,12 +50,12 @@ class TestAssignment {
 		public void testSetSetDueDate() {
 			Date date1 = new Date();
 			assignment.setDueDate(date1);
-			DateFormat dateFormat=DateFormat.getDateInstance(DateFormat.SHORT);
-		    String out1 =  dateFormat.format(date1);
-		    String out2 =  assignment.getDueDateString();
-		    assertTrue(out1.equals(out2));
+			DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
+			String out1 = dateFormat.format(date1);
+			String out2 = assignment.getDueDateString();
+			assertTrue(out1.equals(out2));
 		}
-		
+
 		/**
 		 * Test for setting up null value as a due-date
 		 */
@@ -64,136 +64,135 @@ class TestAssignment {
 		public void testSetDueDateNull() {
 			assignment.setDueDate(null);
 			assertThrows(NullPointerException.class, () -> {
-			    assignment.getDueDateString();
-			  }, "should throw a Null Pointer exception");
+				assignment.getDueDateString();
+			}, "should throw a Null Pointer exception");
 		}
-		
+
 	}
-	
+
 	/**
 	 * Nested class for testing if assignment is overdue
 	 */
 	@Nested
 	@DisplayName("test is assignment overdue")
-	class IsOverdue{
-		
+	class IsOverdue {
+
 		Assignment assignment;
 		Date currentDate = new Date();
-		
+
 		/**
 		 * Initiates resource for each test method
 		 */
 		@BeforeEach
 		void init() {
-		    assignment = new Assignment();
-		    currentDate = new Date();
+			assignment = new Assignment();
+			currentDate = new Date();
 		}
-		
+
 		/**
 		 * Tests isoverdue when current date is before duedate
 		 */
 		@Test
 		@DisplayName("when current date is before duedate")
-		public void testIsOverDuePastDate(){
-		    
-			Date tenDaysBefore = new Date(currentDate.getTime() - (10 * 24 * 60 * 60 * 1000)); 
+		public void testIsOverDuePastDate() {
+
+			Date tenDaysBefore = new Date(currentDate.getTime() - (10 * 24 * 60 * 60 * 1000));
 			assignment.setDueDate(tenDaysBefore);
 			assertEquals(true, assignment.isOverDue());
-			
-	    }
-		
+
+		}
+
 		/**
 		 * Tests isoverdue when current date is after duedate
 		 */
 		@Test
 		@DisplayName("when current date is after duedate")
-		public void testIsOverDuePastFuture(){
-		    
-			Date tenDaysAfter = new Date(currentDate.getTime() + (10 * 24 * 60 * 60 * 1000)); 
+		public void testIsOverDuePastFuture() {
+
+			Date tenDaysAfter = new Date(currentDate.getTime() + (10 * 24 * 60 * 60 * 1000));
 			assignment.setDueDate(tenDaysAfter);
-			assertEquals(false, assignment.isOverDue());	
-	    }
-		
+			assertEquals(false, assignment.isOverDue());
+		}
+
 	}
-	
+
 	/**
 	 * Tests add solution instance type
 	 */
 	@Test
-    void testAddSolution(){
+	void testAddSolution() {
 		Solution mysolution = new Solution();
 		assertTrue(mysolution instanceof Solution);
 	}
-	
+
 	/**
 	 * Tests if current solution is added to solutionlist
 	 */
 	@Test
 	@DisplayName("test add solution to list")
-	void testAddSolutionToList(){
-		
+	void testAddSolutionToList() {
+
 		Assignment assignment = new Assignment();
 		Iterator<?> iterator = assignment.getSolutionIterator();
-		int size=0;
-		while(iterator.hasNext()) {
+		int size = 0;
+		while (iterator.hasNext()) {
 			iterator.next();
 			size++;
 		}
-		
+
 		assignment.addSolution(new Solution());
 		Iterator<?> iterator1 = assignment.getSolutionIterator();
-	
-		int newSize=0;
-		while(iterator1.hasNext()) {
+
+		int newSize = 0;
+		while (iterator1.hasNext()) {
 			iterator1.next();
 			newSize++;
 		}
-		
-		assertTrue(newSize == size+1);
+
+		assertTrue(newSize == size + 1);
 	}
-	
-	
+
 	/**
 	 * Tests if the solutionlist is retrieved
 	 */
 	@Test
-	void testGetSolutionList(){
-		
+	void testGetSolutionList() {
+
 		SolutionList expected = new SolutionList();
 		expected.add(new Solution());
 		expected.add(new Solution());
-		
+
 		Assignment assignment = new Assignment();
-		
-		for(Solution solution: expected)
+
+		for (Solution solution : expected)
 			assignment.addSolution(solution);
-		
+
 		SolutionList actual = assignment.getSolutionList();
 		assertEquals(expected, actual);
 	}
-	
+
 	/**
 	 * Tests getSolution
 	 */
 	@Test
 	@DisplayName("test get solution")
-	void testGetSolution(){
-	    
+	void testGetSolution() {
+
 		Solution mysolution = new Solution();
-        Assignment assignment = new Assignment();
-        assignment.addSolution(mysolution);
-        assertEquals(mysolution, assignment.getSolution(""));
-		
+		Assignment assignment = new Assignment();
+		assignment.addSolution(mysolution);
+		assertEquals(mysolution, assignment.getSolution(""));
+
 	}
-	
+
 	/**
 	 * Tests the string representation of assignment object
 	 */
 	@Test
 	@DisplayName("test toString")
-	void testToString(){
+	void testToString() {
 		Assignment assignment = new Assignment();
-		assertEquals(null, assignment.toString());	
+		assertEquals(null, assignment.toString());
 	}
 
 	/**
@@ -201,28 +200,28 @@ class TestAssignment {
 	 */
 	@Test
 	@DisplayName("test get duedate string")
-    void getDueDateString(){
-	    
+	void getDueDateString() {
+
 		Date date = new Date();
-	    DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
-	    String expected = dateFormat.format(date);
-	    Assignment assignment = new Assignment();
-	    assignment.setDueDate(date);
-	    String actual = assignment.getDueDateString();
-	    assertEquals(expected, actual);
+		DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
+		String expected = dateFormat.format(date);
+		Assignment assignment = new Assignment();
+		assignment.setDueDate(date);
+		String actual = assignment.getDueDateString();
+		assertEquals(expected, actual);
 	}
-	
+
 	/**
 	 * Test accept method
 	 */
 	@Test
 	@DisplayName("test accept method  when Nodevisitor is null")
 	void testAccept() {
-		NodeVisitor nodeVisitor=null;
+		NodeVisitor nodeVisitor = null;
 		Assignment assignment = new Assignment();
 		assertThrows(NullPointerException.class, () -> {
-		    assignment.accept(nodeVisitor);
-		  }, "should throw a Null Pointer exception");
+			assignment.accept(nodeVisitor);
+		}, "should throw a Null Pointer exception");
 	}
 
 }

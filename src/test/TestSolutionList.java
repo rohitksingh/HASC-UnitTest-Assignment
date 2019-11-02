@@ -16,13 +16,12 @@ class TestSolutionList {
 	 */
 	@Test
 	@DisplayName("test add solution")
-	void testAddSolution()
-	{
+	void testAddSolution() {
 		SolutionList list = new SolutionList();
 		Solution expected = new Solution();
 		list.add(expected);
-		Solution actual = list.get(list.size()-1);
-		assertEquals(expected, actual);    
+		Solution actual = list.get(list.size() - 1);
+		assertEquals(expected, actual);
 	}
 
 }

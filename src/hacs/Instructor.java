@@ -17,7 +17,7 @@ public class Instructor extends Person {
 	/**
 	 * Returns course menu based on the courselevel
 	 * 
-	 * @return CourseMenu 
+	 * @return CourseMenu
 	 */
 	@Override
 	public CourseMenu createCourseMenu(Course theCourse, int theLevel) {
