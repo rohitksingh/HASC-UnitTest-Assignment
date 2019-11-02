@@ -19,7 +19,7 @@ import hacs.Course;
 @DisplayName("When running Class course list")
 class TestClassCourseList {
 
-	/*
+	/**
 	 * Tests if course exist with a given name
 	 */
 	@Test
@@ -35,7 +35,7 @@ class TestClassCourseList {
 	
 	}
 	
-	/*
+	/**
 	 * Tests if course exist with a given name when wrong file is chosen
 	 */
 	@Test
@@ -51,7 +51,7 @@ class TestClassCourseList {
 		  }, "should throw a Null Pointer exception");
 	}
 	
-	/*
+	/**
 	 * Tests if course exist with a given name when wrong file is chosen
 	 */
 	@Test
@@ -67,6 +67,9 @@ class TestClassCourseList {
 		  }, "should throw a Null Pointer exception");
 	}
 	
+	/**
+	 * Test if courses are read from file
+	 */
 	@Test
 	@DisplayName("test initialze from file")
 	void testinitializeFromFile() {
@@ -78,6 +81,9 @@ class TestClassCourseList {
 		assertEquals("CSE890", classCourseList.get(2).toString());
 	}
 	
+	/**
+	 * Test if courses are read from file
+	 */
 	@Test
 	@DisplayName("test initialze from file")
 	void testinitializeFileFromWhenWrongPath() {

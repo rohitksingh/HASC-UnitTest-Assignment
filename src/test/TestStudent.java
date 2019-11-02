@@ -27,13 +27,13 @@ class TestStudent {
 	@Test
 	@DisplayName("test create high level course menu")
 	void testCreateLowLevelCourseMenu() {
-	
-		 CourseMenu coursemenu = new Instructor().createCourseMenu(null, 0);
-		 boolean result = coursemenu instanceof LowLevelCourseMenu; 
-		 assertTrue(result);
-		
+
+		CourseMenu coursemenu = new Instructor().createCourseMenu(null, 0);
+		boolean result = coursemenu instanceof LowLevelCourseMenu;
+		assertTrue(result);
+
 	}
-	
+
 	/**
 	 * Tests if a high-level-coursemenu is returned
 	 */
@@ -41,23 +41,23 @@ class TestStudent {
 	@DisplayName("test create low level course menu")
 	void testCreateHighLevelCourseMenu() {
 		CourseMenu coursemenu = new Instructor().createCourseMenu(null, 1);
-		 boolean result = coursemenu instanceof HighLevelCourseMenu; 
-		 assertTrue(result);
+		boolean result = coursemenu instanceof HighLevelCourseMenu;
+		assertTrue(result);
 	}
-	
+
 	/**
 	 * Tests if a low-level-coursemenu is returned
 	 */
 	@Test
 	@DisplayName("test create high level course menu wrongly")
 	void testCreateHighLevelCourseMenuWrong() {
-	
-		 CourseMenu coursemenu = new Instructor().createCourseMenu(null, 1);
-		 boolean result = coursemenu instanceof LowLevelCourseMenu; 
-		 assertFalse(result);
-		
+
+		CourseMenu coursemenu = new Instructor().createCourseMenu(null, 1);
+		boolean result = coursemenu instanceof LowLevelCourseMenu;
+		assertFalse(result);
+
 	}
-	
+
 	/**
 	 * Tests if a low-level-coursemenu is returned
 	 */
@@ -65,8 +65,8 @@ class TestStudent {
 	@DisplayName("test create low level course menu wrongly")
 	void testCreateLowLevelCourseMenuWrong() {
 		CourseMenu coursemenu = new Instructor().createCourseMenu(null, 0);
-		 boolean result = coursemenu instanceof HighLevelCourseMenu; 
-		 assertFalse(result);
+		boolean result = coursemenu instanceof HighLevelCourseMenu;
+		assertFalse(result);
 	}
 
 }
