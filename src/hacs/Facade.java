@@ -33,6 +33,7 @@ public class Facade {
 	 * @param userinfoItem
 	 * @return
 	 */
+	@SuppressWarnings("static-access")
 	static public boolean login(UserInfoItem userinfoItem) {
 		Login login = new Login();
 		login.setModal(true);
