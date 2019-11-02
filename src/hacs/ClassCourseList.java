@@ -37,16 +37,13 @@ public class ClassCourseList extends ArrayList<Course> {
 		BufferedReader bufferedReeader;
 		try {
 
-			int count =0;
+			
 			String strCourseName = null;
 			bufferedReeader = new BufferedReader(new FileReader(theFileName));
 			while ((strCourseName = bufferedReeader.readLine()) != null) {
 				Course theCourse;
 				theCourse = new Course(strCourseName, 0);
-				Assignment assignment = new Assignment();
-				count++;
 				theCourse.assignmentList = (ArrayList<Assignment>) getList();
-				// theCourse.CourseName= strCourseName;
 				System.out.println(theCourse);
 				add(theCourse);
 			}
@@ -89,18 +86,21 @@ public class ClassCourseList extends ArrayList<Course> {
 		solutionList.add(solution);
 		
 		
+		Date currentDate = new Date();
 		Assignment ass1 = new Assignment();
 		ass1.assignmentName = "Junit";
 		ass1.theSolutionList  = solutionList;
 		ass1.suggestSolution = solution;
-		ass1.setDueDate(new Date());
+		Date tenDaysAfter = new Date(currentDate.getTime() + (10 * 24 * 60 * 60 * 1000));
+		ass1.setDueDate(tenDaysAfter);
 		
 		Assignment ass2 = new Assignment();
 		ass2.assignmentName = "Design Pattern";
-		ass2.setDueDate(new Date());
 		ass2.theSolutionList  = solutionList;
 		ass2.suggestSolution = solution1;
-		
+		Date seven = new Date(currentDate.getTime() - (7 * 24 * 60 * 60 * 1000));
+		ass2.setDueDate(seven);
+
 		List<Assignment> list = new ArrayList<Assignment>();
 		list.add(ass1);
 		list.add(ass2);
