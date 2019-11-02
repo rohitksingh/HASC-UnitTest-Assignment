@@ -39,7 +39,7 @@ public class Facade {
 		login.setVisible(true);
 		userinfoItem.userType = login.getUserType();
 		
-//		userinfoItem.strUserName = login.getName();
+		userinfoItem.strUserName = login.getName();
 		
 		if(userinfoItem.userType==userinfoItem.userType.Instructor) {
 			userinfoItem.strUserName = "Inst1";
