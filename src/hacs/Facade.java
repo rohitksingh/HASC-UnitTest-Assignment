@@ -37,8 +37,19 @@ public class Facade {
 		Login login = new Login();
 		login.setModal(true);
 		login.setVisible(true);
-		userinfoItem.strUserName = login.getName();
 		userinfoItem.userType = login.getUserType();
+		
+//		userinfoItem.strUserName = login.getName();
+		
+		if(userinfoItem.userType==userinfoItem.userType.Instructor) {
+			userinfoItem.strUserName = "Inst1";
+		}else
+		{
+			userinfoItem.strUserName = "pepe";
+		}
+		
+		userinfoItem.userType = login.getUserType();
+		System.out.println("Login Name"+login.getName() +" "+login.getUserType());
 		return login.isExit();
 	}
 
@@ -157,6 +168,7 @@ public class Facade {
 			{
 				strUserName = getUserName(aline);
 				strCourseName = getCourseName(aline);
+				System.out.println("u"+strUserName+" "+strCourseName + thePerson.userName );
 				if (strUserName.compareTo(thePerson.userName) == 0) /// the UserName mateches
 				{
 					theSelecteCourse = findCourseByCourseName(strCourseName);

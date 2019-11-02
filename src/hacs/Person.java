@@ -89,6 +89,7 @@ abstract public class Person {
 	 */
 	public boolean showMenu() {
 
+		System.out.println(currentCourse.assignmentList.size()+"Assignment list"+currentCourse.courseName);
 		Iterator<Assignment> assignmentIterator = currentCourse.assignmentList.iterator();
 		theCourseMenu.theCourse = currentCourse;
 		Assignment theAssignment;

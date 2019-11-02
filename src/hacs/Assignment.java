@@ -27,7 +27,7 @@ import java.text.DateFormat;
  */
 public class Assignment {
 
-	protected String assignmentName;
+	public String assignmentName;
 	protected String strAssignmentFilename;
 	protected Date dueDate = new Date();
 	protected String assignmentSpec;
