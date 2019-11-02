@@ -105,13 +105,16 @@ public class Login extends JDialog {
 			if (studentRadio.isSelected() == true)//// student
 			{
 				userType = USER_TYPE.Student; /// 0 for student
-				file = new BufferedReader(new FileReader("StuInfo.txt"));
+				file = new BufferedReader(new FileReader("/src/StuInfo.txt"));
 			} else// instructor
 			{
+				System.out.println("login clicked2");
 				userType = USER_TYPE.Instructor; // 1 for instructor
-				file = new BufferedReader(new FileReader("InsInfor.txt"));
+				file = new BufferedReader(new FileReader("/src/InsInfor.txt"));
 			}
+			System.out.println("login clicked 3");
 			userBox = userNameText.getText();
+				
 			String PasswordBox = new String(passwordText.getPassword());
 			String LoginName = null;
 			String aline = null, UserName = null, Password = null;
@@ -123,10 +126,9 @@ public class Login extends JDialog {
 			}
 			if (LoginName != null) {
 				this.setVisible(false);
-				;
 			}
 		} catch (Exception ee) {
-
+            System.out.println("Exslkdlskd");
 		}
 
 	}
