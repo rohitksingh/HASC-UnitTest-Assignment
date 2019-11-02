@@ -78,35 +78,34 @@ public class ClassCourseList extends ArrayList<Course> {
 		Solution solution = new Solution();
 		solution.theAuthor = "rsingh91";
 		solution.SolutionFileName="Solution1";
+	
 		
 		Solution solution1 = new Solution();
-		solution.theAuthor = "rsingh92";
-		solution.SolutionFileName="Solution2";
+		solution1.theAuthor = "rsingh92";
+		solution1.SolutionFileName="Solution2";
 		
 		SolutionList solutionList = new SolutionList();
 		solutionList.add(solution1);
 		solutionList.add(solution);
 		
 		
-		List<Assignment> list = new ArrayList<Assignment>();
 		Assignment ass1 = new Assignment();
 		ass1.assignmentName = "Junit";
 		ass1.theSolutionList  = solutionList;
 		ass1.suggestSolution = solution;
 		ass1.setDueDate(new Date());
-		list.add(ass1);
+		
 		Assignment ass2 = new Assignment();
-		ass1.assignmentName = "Design Pattern";
-		ass1.setDueDate(new Date());
-		ass1.theSolutionList  = solutionList;
-		ass1.suggestSolution = solution1;
+		ass2.assignmentName = "Design Pattern";
+		ass2.setDueDate(new Date());
+		ass2.theSolutionList  = solutionList;
+		ass2.suggestSolution = solution1;
+		
+		List<Assignment> list = new ArrayList<Assignment>();
+		list.add(ass1);
 		list.add(ass2);
+		
 		return list;
-		
-		
-		
-		
-		
 		
 	}
 	
