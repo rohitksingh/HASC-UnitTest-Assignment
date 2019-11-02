@@ -44,7 +44,6 @@ public class ClassCourseList extends ArrayList<Course> {
 				Course theCourse;
 				theCourse = new Course(strCourseName, 0);
 				theCourse.assignmentList = (ArrayList<Assignment>) getList();
-				System.out.println(theCourse);
 				add(theCourse);
 			}
 		} catch (Exception ee) {
